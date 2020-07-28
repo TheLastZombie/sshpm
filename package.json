@@ -45,6 +45,7 @@
     "lint": "npx standard --fix",
     "postpack": "rimraf oclif.manifest.json",
     "prepack": "oclif-dev manifest && oclif-dev readme",
+    "start": "node ./bin/run",
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md"
   }
