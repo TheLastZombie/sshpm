@@ -17,11 +17,10 @@ class ApplyCommand extends Command {
     /* ZOC7 Terminal ************************************************************/
 
     const out = path.resolve(os.homedir(), 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini')
-    let temp = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'HostDirectory.zocini'), 'utf-8')
-
     if (!fs.existsSync(out)) throw Error('ZOC configuration file does not exist')
 
     data.forEach(element => {
+      let temp = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'HostDirectory.zocini'), 'utf-8')
       let conf = fs.readFileSync(out, 'utf-8')
       temp = temp
         .replace(/\$\(TIME\)/g, element.time)
