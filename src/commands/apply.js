@@ -2,6 +2,8 @@ const { Command, flags } = require('@oclif/command')
 
 class ApplyCommand extends Command {
   async run () {
+    const { args, flags } = this.parse(ApplyCommand)
+
     const os = require('os')
     const path = require('path')
     const fs = require('fs')
@@ -14,54 +16,58 @@ class ApplyCommand extends Command {
 
     const data = JSON.parse(fs.readFileSync(file))
 
-    // WinSCP Portable
-    // TODO: Convert key file to PuTTY format
+    if (args.program === 'winscp-portable') {
+      // TODO: Convert key file to PuTTY format
 
-    const { flags } = this.parse(ApplyCommand)
+      if (!flags['winscp-ini']) throw Error('no WinSCP configuration file specified')
+      const outWscp = path.resolve(flags['winscp-ini'])
+      if (!fs.existsSync(outWscp)) throw Error('WinSCP configuration file does not exist')
 
-    const outWscp = path.resolve(flags['winscp-ini'])
-    if (!fs.existsSync(outWscp)) throw Error('WinSCP configuration file does not exist')
+      data.forEach(element => {
+        let tempWscp = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'winscp.ini'), 'utf-8')
+        let conf = fs.readFileSync(outWscp, 'utf-8')
+        tempWscp = tempWscp
+          .replace(/\$\(NAME\)/g, element.name.replace(/\s/g, '%20'))
+          .replace(/\$\(HOST\)/g, element.host)
+          .replace(/\$\(PORT\)/g, element.port)
+          .replace(/\$\(USER\)/g, element.user)
+          .replace(/\$\(PASS\)/g, element.pass || '')
+          .replace(/\$\(KEY\)/g, element.key || '')
+        conf = conf + tempWscp
+        fs.writeFileSync(outWscp, conf)
+      })
+    }
 
-    data.forEach(element => {
-      let tempWscp = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'winscp.ini'), 'utf-8')
-      let conf = fs.readFileSync(outWscp, 'utf-8')
-      tempWscp = tempWscp
-        .replace(/\$\(NAME\)/g, element.name.replace(/\s/g, '%20'))
-        .replace(/\$\(HOST\)/g, element.host)
-        .replace(/\$\(PORT\)/g, element.port)
-        .replace(/\$\(USER\)/g, element.user)
-        .replace(/\$\(PASS\)/g, element.pass || '')
-        .replace(/\$\(KEY\)/g, element.key || '')
-      conf = conf + tempWscp
-      fs.writeFileSync(outWscp, conf)
-    })
+    if (args.program === 'zoc') {
+      const outZoc = path.resolve(os.homedir(), 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini')
+      if (!fs.existsSync(outZoc)) throw Error('ZOC configuration file does not exist')
 
-    // ZOC7 Terminal
-
-    const outZoc = path.resolve(os.homedir(), 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini')
-    if (!fs.existsSync(outZoc)) throw Error('ZOC configuration file does not exist')
-
-    data.forEach(element => {
-      let tempZoc = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'HostDirectory.zocini'), 'utf-8')
-      let conf = fs.readFileSync(outZoc, 'utf-8')
-      tempZoc = tempZoc
-        .replace(/\$\(TIME\)/g, element.time)
-        .replace(/\$\(NAME\)/g, element.name)
-        .replace(/\$\(HOST\)/g, element.host)
-        .replace(/\$\(PORT\)/g, element.port)
-        .replace(/\$\(USER\)/g, element.user)
-        .replace(/\$\(PASS\)/g, element.pass || '')
-        .replace(/\$\(KEY\)/g, element.key || '')
-      conf = conf.replace('[/DATA]', tempZoc + '\n\n[/DATA]')
-      fs.writeFileSync(outZoc, conf)
-    })
+      data.forEach(element => {
+        let tempZoc = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'HostDirectory.zocini'), 'utf-8')
+        let conf = fs.readFileSync(outZoc, 'utf-8')
+        tempZoc = tempZoc
+          .replace(/\$\(TIME\)/g, element.time)
+          .replace(/\$\(NAME\)/g, element.name)
+          .replace(/\$\(HOST\)/g, element.host)
+          .replace(/\$\(PORT\)/g, element.port)
+          .replace(/\$\(USER\)/g, element.user)
+          .replace(/\$\(PASS\)/g, element.pass || '')
+          .replace(/\$\(KEY\)/g, element.key || '')
+        conf = conf.replace('[/DATA]', tempZoc + '\n\n[/DATA]')
+        fs.writeFileSync(outZoc, conf)
+      })
+    }
   }
 }
 
 ApplyCommand.description = 'send profiles to programs'
 
+ApplyCommand.args = [
+  { name: 'program', description: 'program to send profiles to', required: true, options: ['winscp-portable', 'zoc'] }
+]
+
 ApplyCommand.flags = {
-  'winscp-ini': flags.string({ char: 'w', description: 'WinSCP portable configuration file', required: true })
+  'winscp-ini': flags.string({ char: 'w', description: 'WinSCP portable configuration file' })
 }
 
 module.exports = ApplyCommand
