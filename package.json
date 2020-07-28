@@ -15,7 +15,8 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
     "globby": "^10.0.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "standard": "^14.3.4"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -41,6 +42,7 @@
   },
   "repository": "TheLastZombie/sps",
   "scripts": {
+    "lint": "npx standard --fix",
     "postpack": "rimraf oclif.manifest.json",
     "prepack": "oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
