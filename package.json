@@ -43,6 +43,7 @@
   },
   "repository": "TheLastZombie/sps",
   "scripts": {
+    "dist": "npx oclif-dev pack",
     "lint": "npx standard --fix",
     "postpack": "rimraf oclif.manifest.json",
     "prepack": "oclif-dev manifest && oclif-dev readme",
