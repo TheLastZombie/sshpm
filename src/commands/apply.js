@@ -18,8 +18,8 @@ class ApplyCommand extends Command {
     const data = JSON.parse(fs.readFileSync(file))
 
     if (args.program === 'winscp-portable') {
-      if (!flags['winscp-ini']) throw Error('no WinSCP configuration file specified')
-      const outWscp = path.resolve(flags['winscp-ini'])
+      if (!flags['winscp-conf']) throw Error('no WinSCP configuration file specified')
+      const outWscp = path.resolve(flags['winscp-conf'])
       if (!fs.existsSync(outWscp)) throw Error('WinSCP configuration file does not exist')
 
       data.forEach(element => {
@@ -70,7 +70,7 @@ ApplyCommand.args = [
 ]
 
 ApplyCommand.flags = {
-  'winscp-ini': flags.string({ char: 'w', description: 'WinSCP portable configuration file' })
+  'winscp-conf': flags.string({ char: 'w', description: 'WinSCP portable configuration file' })
 }
 
 module.exports = ApplyCommand
