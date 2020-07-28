@@ -1,7 +1,7 @@
 const { Command } = require('@oclif/command')
 const { cli } = require('cli-ux')
 
-class ResetCommand extends Command {
+class ListCommand extends Command {
   async run () {
     const os = require('os')
     const path = require('path')
@@ -30,6 +30,6 @@ class ResetCommand extends Command {
   }
 }
 
-ResetCommand.description = 'list profiles'
+ListCommand.description = 'list profiles'
 
-module.exports = ResetCommand
+module.exports = ListCommand
