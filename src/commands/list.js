@@ -22,7 +22,8 @@ class ResetCommand extends Command {
       port: {},
       user: {},
       pass: {},
-      key: {}
+      key: {},
+      time: {}
     }, {
       sort: 'name'
     })

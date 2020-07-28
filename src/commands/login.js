@@ -24,7 +24,8 @@ class LoginCommand extends Command {
       port: flags.port,
       user: flags.user,
       pass: flags.pass,
-      key: flags.key
+      key: flags.key,
+      time: Math.floor(Date.now() / 1000)
     })
 
     fs.writeFileSync(file, JSON.stringify(data))
