@@ -11,7 +11,7 @@ class TestCommand extends Command {
     const conn = new Client()
 
     const dir = path.resolve(os.homedir(), '.config', 'sps')
-    const file = path.resolve(dir, 'logins.json')
+    const file = path.resolve(dir, 'config.json')
 
     if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')

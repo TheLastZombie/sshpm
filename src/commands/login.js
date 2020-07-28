@@ -9,7 +9,7 @@ class LoginCommand extends Command {
     const fs = require('fs')
 
     const dir = path.resolve(os.homedir(), '.config', 'sps')
-    const file = path.resolve(dir, 'logins.json')
+    const file = path.resolve(dir, 'config.json')
 
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
     if (!fs.existsSync(file)) fs.writeFileSync(file, '[]')
