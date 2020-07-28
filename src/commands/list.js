@@ -15,11 +15,15 @@ class ResetCommand extends Command {
 
     const data = JSON.parse(fs.readFileSync(file))
     if (!data.length) return
-    const rows = {}
-    // eslint-disable-next-line no-return-assign
-    Object.keys(data[0]).forEach(x => rows[x] = {})
 
-    cli.table(data, rows, {
+    cli.table(data, {
+      name: {},
+      host: {},
+      port: {},
+      user: {},
+      pass: {},
+      key: {}
+    }, {
       sort: 'name'
     })
   }
