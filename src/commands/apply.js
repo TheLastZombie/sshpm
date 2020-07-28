@@ -7,6 +7,7 @@ class ApplyCommand extends Command {
     const os = require('os')
     const path = require('path')
     const fs = require('fs')
+    const childProcess = require('child_process')
 
     const dir = path.resolve(os.homedir(), '.config', 'sps')
     const file = path.resolve(dir, 'config.json')
@@ -17,13 +18,15 @@ class ApplyCommand extends Command {
     const data = JSON.parse(fs.readFileSync(file))
 
     if (args.program === 'winscp-portable') {
-      // TODO: Convert key file to PuTTY format
-
       if (!flags['winscp-ini']) throw Error('no WinSCP configuration file specified')
       const outWscp = path.resolve(flags['winscp-ini'])
       if (!fs.existsSync(outWscp)) throw Error('WinSCP configuration file does not exist')
 
       data.forEach(element => {
+        if (element.key && !fs.readFileSync(element.key, 'utf-8').startsWith('PuTTY-User-Key-File')) {
+          this.log('Converting key... please close any appearing windows.')
+          childProcess.spawn('winscp', ['/keygen', element.key, '/output=' + element.key + '.ppk'])
+        }
         let tempWscp = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'winscp.ini'), 'utf-8')
         let conf = fs.readFileSync(outWscp, 'utf-8')
         tempWscp = tempWscp
@@ -32,7 +35,7 @@ class ApplyCommand extends Command {
           .replace(/\$\(PORT\)/g, element.port)
           .replace(/\$\(USER\)/g, element.user)
           .replace(/\$\(PASS\)/g, element.pass || '')
-          .replace(/\$\(KEY\)/g, element.key || '')
+          .replace(/\$\(KEY\)/g, element.key + '.ppk' || '')
         conf = conf + tempWscp
         fs.writeFileSync(outWscp, conf)
       })
