@@ -7,6 +7,15 @@ module.exports = (cli, data, flags) => {
   const outWscp = path.resolve(flags['winscp-conf'])
   if (!fs.existsSync(outWscp)) throw Error('WinSCP configuration file does not exist')
 
+  if (!flags.keep) {
+    let conf = fs.readFileSync(outWscp, 'utf-8')
+    conf = conf
+      .split('\r\n\r\n')
+      .filter(x => !x.match(/\[Sessions\\.*?\]\r\nSps=/))
+      .join('\r\n\r\n')
+    fs.writeFileSync(outWscp, conf)
+  }
+
   data.forEach(element => {
     if (element.key && !fs.readFileSync(element.key, 'utf-8').startsWith('PuTTY-User-Key-File')) {
       cli.log('Converting key... please close any appearing windows.')
@@ -20,7 +29,7 @@ module.exports = (cli, data, flags) => {
       .replace(/\$\(PORT\)/g, element.port)
       .replace(/\$\(USER\)/g, element.user)
       .replace(/\$\(PASS\)/g, element.pass || '')
-      .replace(/\$\(KEY\)/g, element.key + '.ppk' || '')
+      .replace(/\$\(KEY\)/g, (element.key ? element.key + '.ppk' : ''))
       .replace(/\$\(VERSION\)/g, cli.config.version)
     conf = conf + tempWscp
     fs.writeFileSync(outWscp, conf)

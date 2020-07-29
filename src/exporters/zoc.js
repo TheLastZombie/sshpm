@@ -1,10 +1,19 @@
-module.exports = (cli, data) => {
+module.exports = (cli, data, flags) => {
   const path = require('path')
   const os = require('os')
   const fs = require('fs')
 
   const outZoc = path.resolve(os.homedir(), 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini')
   if (!fs.existsSync(outZoc)) throw Error('ZOC configuration file does not exist')
+
+  if (!flags.keep) {
+    let conf = fs.readFileSync(outZoc, 'utf-8')
+    conf = conf
+      .split('\r\n\r\n')
+      .filter(x => !x.match(/\[HOST\].*memo="sps\//s))
+      .join('\r\n\r\n')
+    fs.writeFileSync(outZoc, conf)
+  }
 
   data.forEach(element => {
     let tempZoc = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'HostDirectory.zocini'), 'utf-8')
@@ -18,7 +27,7 @@ module.exports = (cli, data) => {
       .replace(/\$\(PASS\)/g, element.pass || '')
       .replace(/\$\(KEY\)/g, element.key || '')
       .replace(/\$\(VERSION\)/g, cli.config.version)
-    conf = conf.replace('[/DATA]', tempZoc + '\n\n[/DATA]')
+    conf = conf.replace('[/DATA]', tempZoc + '\n[/DATA]')
     fs.writeFileSync(outZoc, conf)
   })
 }

@@ -30,6 +30,7 @@ ApplyCommand.args = [
 ]
 
 ApplyCommand.flags = {
+  keep: flags.boolean({ char: 'k', description: 'keep previous configurations sent by sps' }),
   'winscp-conf': flags.string({ description: 'WinSCP portable configuration file' })
 }
 
