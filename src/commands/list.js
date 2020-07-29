@@ -21,13 +21,13 @@ class ListCommand extends Command {
       this.log(data)
     } else {
       cli.table(data, {
-        name: {},
-        host: {},
-        port: {},
-        user: {},
-        pass: {},
-        key: {},
-        time: {}
+        name: { header: 'Profile name' },
+        host: { header: 'Host or IP' },
+        port: { header: 'Port' },
+        user: { header: 'User name' },
+        pass: { header: 'Password' },
+        key: { header: 'Key file' },
+        time: { header: 'Timestamp' }
       }, {
         sort: 'name'
       })
