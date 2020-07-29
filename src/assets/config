@@ -1,0 +1,8 @@
+
+Host "$(NAME)"
+  # spm/$(VERSION)
+  HostName $(HOST)
+  User $(USER)
+  Port $(PORT)
+  IdentityFile $(KEY)
+  ForwardAgent yes

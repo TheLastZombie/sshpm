@@ -26,7 +26,7 @@ module.exports = (cli, data, flags) => {
       .replace(/\$\(PASS\)/g, element.pass || '')
       .replace(/\$\(KEY\)/g, element.key || '')
       .replace(/\$\(VERSION\)/g, cli.config.version)
-    conf = conf.replace('[/DATA]', tempZoc + '\n[/DATA]')
+    conf = conf.replace('[/DATA]', tempZoc + '\r\n[/DATA]')
     fs.writeFileSync(outZoc, conf)
   })
 }
