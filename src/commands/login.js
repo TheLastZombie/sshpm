@@ -4,11 +4,10 @@ class LoginCommand extends Command {
   async run () {
     const { args, flags } = this.parse(LoginCommand)
 
-    const os = require('os')
     const path = require('path')
     const fs = require('fs')
 
-    const dir = path.resolve(os.homedir(), '.config', 'sps')
+    const dir = this.config.configDir
     const file = path.resolve(dir, 'config.json')
 
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })

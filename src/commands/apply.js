@@ -9,7 +9,7 @@ class ApplyCommand extends Command {
     const fs = require('fs')
     const childProcess = require('child_process')
 
-    const dir = path.resolve(os.homedir(), '.config', 'sps')
+    const dir = this.config.configDir
     const file = path.resolve(dir, 'config.json')
 
     if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
