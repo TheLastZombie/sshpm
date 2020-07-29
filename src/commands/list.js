@@ -1,8 +1,10 @@
-const { Command } = require('@oclif/command')
+const { Command, flags } = require('@oclif/command')
 const { cli } = require('cli-ux')
 
 class ListCommand extends Command {
   async run () {
+    const { flags } = this.parse(ListCommand)
+
     const path = require('path')
     const fs = require('fs')
 
@@ -15,20 +17,28 @@ class ListCommand extends Command {
     const data = JSON.parse(fs.readFileSync(file))
     if (!data.length) return
 
-    cli.table(data, {
-      name: {},
-      host: {},
-      port: {},
-      user: {},
-      pass: {},
-      key: {},
-      time: {}
-    }, {
-      sort: 'name'
-    })
+    if (flags.json) {
+      this.log(data)
+    } else {
+      cli.table(data, {
+        name: {},
+        host: {},
+        port: {},
+        user: {},
+        pass: {},
+        key: {},
+        time: {}
+      }, {
+        sort: 'name'
+      })
+    }
   }
 }
 
 ListCommand.description = 'list profiles'
+
+ListCommand.flags = {
+  json: flags.boolean({ char: 'j', description: 'output in JSON format' })
+}
 
 module.exports = ListCommand
