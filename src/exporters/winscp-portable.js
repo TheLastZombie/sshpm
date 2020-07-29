@@ -3,8 +3,8 @@ module.exports = (cli, data, flags) => {
   const fs = require('fs')
   const childProcess = require('child_process')
 
-  if (!flags['winscp-conf']) throw Error('no WinSCP configuration file specified')
-  const outWscp = path.resolve(flags['winscp-conf'])
+  if (!flags.conf) throw Error('no WinSCP configuration file specified')
+  const outWscp = path.resolve(flags.conf)
   if (!fs.existsSync(outWscp)) throw Error('WinSCP configuration file does not exist')
 
   if (!flags.keep) {
@@ -19,7 +19,7 @@ module.exports = (cli, data, flags) => {
   data.forEach(element => {
     if (element.key && !fs.readFileSync(element.key, 'utf-8').startsWith('PuTTY-User-Key-File')) {
       cli.log('Converting key... please close any appearing windows.')
-      childProcess.spawn(flags['winscp-conf'].replace('winscp.ini', 'WinSCP.exe'), ['/keygen', element.key, '/output=' + element.key + '.ppk'])
+      childProcess.spawn(flags.conf.replace('winscp.ini', 'WinSCP.exe'), ['/keygen', element.key, '/output=' + element.key + '.ppk'])
     }
     let tempWscp = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'winscp.ini'), 'utf-8')
     let conf = fs.readFileSync(outWscp, 'utf-8')

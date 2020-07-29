@@ -2,7 +2,7 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
 
-  const outSsh = path.resolve(cli.config.home, '.ssh', 'config')
+  const outSsh = path.resolve(flags.conf || cli.config.home, '.ssh', 'config')
   if (!fs.existsSync(outSsh)) throw Error('OpenSSH configuration file does not exist')
 
   if (!flags.keep) {

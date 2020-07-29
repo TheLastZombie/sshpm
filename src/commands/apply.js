@@ -31,7 +31,7 @@ ApplyCommand.args = [
 
 ApplyCommand.flags = {
   keep: flags.boolean({ char: 'k', description: 'keep previous profiles sent by spm' }),
-  'winscp-conf': flags.string({ description: 'WinSCP portable configuration file' })
+  conf: flags.string({ char: 'c', description: 'application configuration file' })
 }
 
 module.exports = ApplyCommand
