@@ -1,6 +1,6 @@
 const { Command } = require('@oclif/command')
 
-class ConfCommand extends Command {
+class OpenCommand extends Command {
   async run () {
     const path = require('path')
     const fs = require('fs')
@@ -16,6 +16,6 @@ class ConfCommand extends Command {
   }
 }
 
-ConfCommand.description = 'open sps configuration'
+OpenCommand.description = 'open sps configuration'
 
-module.exports = ConfCommand
+module.exports = OpenCommand
