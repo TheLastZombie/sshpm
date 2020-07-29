@@ -36,6 +36,7 @@ class ApplyCommand extends Command {
           .replace(/\$\(USER\)/g, element.user)
           .replace(/\$\(PASS\)/g, element.pass || '')
           .replace(/\$\(KEY\)/g, element.key + '.ppk' || '')
+          .replace(/\$\(VERSION\)/g, this.config.version)
         conf = conf + tempWscp
         fs.writeFileSync(outWscp, conf)
       })
@@ -56,6 +57,7 @@ class ApplyCommand extends Command {
           .replace(/\$\(USER\)/g, element.user)
           .replace(/\$\(PASS\)/g, element.pass || '')
           .replace(/\$\(KEY\)/g, element.key || '')
+          .replace(/\$\(VERSION\)/g, this.config.version)
         conf = conf.replace('[/DATA]', tempZoc + '\n\n[/DATA]')
         fs.writeFileSync(outZoc, conf)
       })
