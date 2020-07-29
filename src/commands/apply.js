@@ -19,10 +19,14 @@ class ApplyCommand extends Command {
   }
 }
 
+const fs = require('fs')
+const path = require('path')
+const exporters = fs.readdirSync(path.resolve(__dirname, '..', 'exporters')).map(x => path.parse(x).name)
+
 ApplyCommand.description = 'send profiles to programs'
 
 ApplyCommand.args = [
-  { name: 'program', description: 'program to send profiles to', required: true, options: ['winscp-portable', 'zoc'] }
+  { name: 'program', description: 'program to send profiles to', required: true, options: exporters }
 ]
 
 ApplyCommand.flags = {
