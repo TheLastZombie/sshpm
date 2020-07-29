@@ -1,3 +1,3 @@
-# sps
+# spm
 
-The SSH profile synchronizer.
+The SSH profile manager.

@@ -11,7 +11,7 @@ module.exports = (cli, data, flags) => {
     let conf = fs.readFileSync(outWscp, 'utf-8')
     conf = conf
       .split('\r\n\r\n')
-      .filter(x => !x.match(/\[Sessions\\.*?\]\r\nSps=/))
+      .filter(x => !x.match(/\[Sessions\\.*?\]\r\nSpm=/))
       .join('\r\n\r\n')
     fs.writeFileSync(outWscp, conf)
   }

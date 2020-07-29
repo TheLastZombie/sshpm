@@ -1,12 +1,12 @@
 {
-  "name": "sps",
-  "description": "The SSH profile synchronizer.",
+  "name": "spm",
+  "description": "The SSH profile manager.",
   "version": "1.0.0",
   "author": "TheLastZombie",
   "bin": {
-    "sps": "./bin/run"
+    "spm": "./bin/run"
   },
-  "bugs": "https://github.com/TheLastZombie/sps/issues",
+  "bugs": "https://github.com/TheLastZombie/spm/issues",
   "dependencies": {
     "@oclif/command": "^1.7.0",
     "@oclif/config": "^1.16.0",
@@ -30,7 +30,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://github.com/TheLastZombie/sps",
+  "homepage": "https://github.com/TheLastZombie/spm",
   "keywords": [
     "oclif"
   ],
@@ -38,13 +38,13 @@
   "main": "src/index.js",
   "oclif": {
     "commands": "./src/commands",
-    "bin": "sps",
+    "bin": "spm",
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-not-found"
     ]
   },
-  "repository": "TheLastZombie/sps",
+  "repository": "TheLastZombie/spm",
   "scripts": {
     "dist": "npx oclif-dev pack",
     "lint": "npx standard --fix",

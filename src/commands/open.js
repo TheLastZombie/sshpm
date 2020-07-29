@@ -16,6 +16,6 @@ class OpenCommand extends Command {
   }
 }
 
-OpenCommand.description = 'open sps configuration'
+OpenCommand.description = 'open spm configuration'
 
 module.exports = OpenCommand
