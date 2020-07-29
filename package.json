@@ -1,7 +1,7 @@
 {
   "name": "sps",
   "description": "The SSH profile synchronizer.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "TheLastZombie",
   "bin": {
     "sps": "./bin/run"
