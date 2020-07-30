@@ -15,7 +15,7 @@ class TestCommand extends Command {
     if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
 
-    let data = JSON.parse(fs.readFileSync(file))
+    let data = JSON.parse(fs.readFileSync(file, 'utf-8'))
     if (!data.map(x => x.name).includes(args.name)) throw Error('specified profile not found')
     data = data.filter(x => x.name === args.name)[0]
 
@@ -29,7 +29,7 @@ class TestCommand extends Command {
       port: data.port,
       username: data.user,
       password: data.pass,
-      privateKey: (data.key ? fs.readFileSync(data.key) : undefined)
+      privateKey: (data.key ? fs.readFileSync(data.key, 'utf-8') : undefined)
     })
   }
 }

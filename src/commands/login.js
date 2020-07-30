@@ -13,7 +13,7 @@ class LoginCommand extends Command {
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
     if (!fs.existsSync(file)) fs.writeFileSync(file, '[]')
 
-    const data = JSON.parse(fs.readFileSync(file))
+    const data = JSON.parse(fs.readFileSync(file, 'utf-8'))
     if (data.map(x => x.name).includes(args.name)) throw Error('a profile with the same name already exists')
     if (flags.key && !fs.existsSync(flags.key) && !flags.force) throw Error('key file does not exist, use -f to continue')
 

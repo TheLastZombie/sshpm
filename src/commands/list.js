@@ -14,7 +14,7 @@ class ListCommand extends Command {
     if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
 
-    const data = JSON.parse(fs.readFileSync(file))
+    const data = JSON.parse(fs.readFileSync(file, 'utf-8'))
     if (!data.length) return
 
     if (flags.json) {
