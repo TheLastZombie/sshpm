@@ -34,6 +34,6 @@ spm apply
 
 The following programs are currently supported:
 
-- [OpenSSH](https://www.openssh.com/) (unstable)
-- [WinSCP Portable](https://winscp.net/) (unstable)
-- [ZOC Terminal](https://www.emtec.com/zoc/)
+- [OpenSSH](https://www.openssh.com/) (unstable: key files may not work)
+- [WinSCP Portable](https://winscp.net/) (unstable: key  conversion requires interaction)
+- [ZOC Terminal](https://www.emtec.com/zoc/) (unstable: encoding can mess up)

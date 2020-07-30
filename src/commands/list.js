@@ -25,8 +25,8 @@ class ListCommand extends Command {
         host: { header: 'Host or IP' },
         port: { header: 'Port' },
         user: { header: 'User name' },
-        pass: { header: 'Password' },
-        key: { header: 'Key file' },
+        pass: { header: 'Password', get: x => x.pass || '' },
+        key: { header: 'Key file', get: x => x.key || '' },
         time: { header: 'Timestamp' }
       }, {
         sort: 'name'
