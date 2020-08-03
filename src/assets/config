@@ -1,6 +1,6 @@
 
 Host "$(NAME)"
-  # spm/$(VERSION)
+  # sshpm/$(VERSION)
   HostName $(HOST)
   User $(USER)
   Port $(PORT)

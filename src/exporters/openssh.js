@@ -9,7 +9,7 @@ module.exports = (cli, data, flags) => {
     let conf = fs.readFileSync(outSsh, 'utf-8')
     conf = conf
       .split('\r\n\r\n')
-      .filter(x => !x.match(/Host ".*".*# spm\//s))
+      .filter(x => !x.match(/Host ".*".*# sshpm\//s))
       .join('\r\n\r\n')
     fs.writeFileSync(outSsh, conf)
   }

@@ -9,7 +9,7 @@ module.exports = (cli, data, flags) => {
     let conf = fs.readFileSync(outZoc, 'utf-8')
     conf = conf
       .split('\r\n\r\n')
-      .filter(x => !x.match(/\[HOST\].*memo="spm\//s))
+      .filter(x => !x.match(/\[HOST\].*memo="sshpm\//s))
       .join('\r\n\r\n')
     fs.writeFileSync(outZoc, conf)
   }

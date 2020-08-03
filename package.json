@@ -1,12 +1,12 @@
 {
-  "name": "@tlz/spm",
+  "name": "sshpm",
   "description": "The SSH profile manager.",
   "version": "0.1.0",
   "author": "TheLastZombie",
   "bin": {
-    "spm": "./bin/run"
+    "sshpm": "./bin/run"
   },
-  "bugs": "https://github.com/TheLastZombie/spm/issues",
+  "bugs": "https://github.com/TheLastZombie/sshpm/issues",
   "dependencies": {
     "@oclif/command": "^1.7.0",
     "@oclif/config": "^1.16.0",
@@ -30,7 +30,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://github.com/TheLastZombie/spm",
+  "homepage": "https://github.com/TheLastZombie/sshpm",
   "keywords": [
     "oclif"
   ],
@@ -38,13 +38,13 @@
   "main": "src/index.js",
   "oclif": {
     "commands": "./src/commands",
-    "bin": "spm",
+    "bin": "sshpm",
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-not-found"
     ]
   },
-  "repository": "TheLastZombie/spm",
+  "repository": "TheLastZombie/sshpm",
   "scripts": {
     "dist": "npx oclif-dev pack",
     "lint": "npx standard --fix",
