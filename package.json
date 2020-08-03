@@ -1,7 +1,7 @@
 {
-  "name": "spm",
+  "name": "@tlz/spm",
   "description": "The SSH profile manager.",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "TheLastZombie",
   "bin": {
     "spm": "./bin/run"

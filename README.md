@@ -4,14 +4,26 @@ spm allows you to use a single set of SSH connection profiles across multiple SS
 
 ## Installation
 
+### Using NPM
+
+```
+npm i -g @tlz/spm
+```
+
+### Manually
+
+Download the [latest release](https://github.com/TheLastZombie/spm/releases/latest), extract it and add the `bin` directory to your PATH.
+
+### From source
+
 ```
 git clone https://github.com/TheLastZombie/spm
 cd spm
-npm install
+npm i
 npm run dist
 ```
 
-Now simply extract the archive for your OS (placed in `dist`) and add the `bin` directory within it to your PATH.
+After that, you'll (hopefully) find what you need inside the `dist` directory.
 
 ## Usage
 
@@ -35,5 +47,5 @@ spm apply
 The following programs are currently supported:
 
 - [OpenSSH](https://www.openssh.com/) (unstable: key files may not work)
-- [WinSCP Portable](https://winscp.net/) (unstable: key  conversion requires interaction)
+- [WinSCP Portable](https://winscp.net/) (unstable: key conversion requires interaction)
 - [ZOC Terminal](https://www.emtec.com/zoc/) (unstable: encoding can mess up)
