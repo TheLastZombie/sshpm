@@ -18,4 +18,8 @@ class OpenCommand extends Command {
 
 OpenCommand.description = 'open sshpm configuration'
 
+OpenCommand.examples = [
+  '$ sshpm open'
+]
+
 module.exports = OpenCommand

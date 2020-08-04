@@ -17,4 +17,8 @@ class ResetCommand extends Command {
 
 ResetCommand.description = 'delete all profiles'
 
+ResetCommand.examples = [
+  '$ sshpm reset'
+]
+
 module.exports = ResetCommand

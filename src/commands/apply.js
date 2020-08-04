@@ -34,4 +34,10 @@ ApplyCommand.flags = {
   conf: flags.string({ char: 'c', description: 'application configuration file' })
 }
 
+ApplyCommand.examples = [
+  '$ sshpm apply openssh',
+  '$ sshpm apply winscp-portable -c winscp.ini',
+  '$ sshpm apply zoc'
+]
+
 module.exports = ApplyCommand

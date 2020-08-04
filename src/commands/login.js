@@ -46,4 +46,10 @@ LoginCommand.flags = {
   force: flags.boolean({ char: 'f', description: 'ignore non-fatal errors' })
 }
 
+LoginCommand.examples = [
+  '$ sshpm login Server -h example.com -u username',
+  '$ sshpm login Server -h example.com -o 22 -u username -p password',
+  '$ sshpm login Server -h example.com -o 22 -u username -k id_rsa'
+]
+
 module.exports = LoginCommand

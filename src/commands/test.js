@@ -40,4 +40,8 @@ TestCommand.args = [
   { name: 'name', description: 'profile name', required: true }
 ]
 
+TestCommand.examples = [
+  '$ sshpm test Server'
+]
+
 module.exports = TestCommand

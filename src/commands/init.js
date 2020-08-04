@@ -17,4 +17,8 @@ class InitCommand extends Command {
 
 InitCommand.description = 'create an empty configuration file'
 
+InitCommand.examples = [
+  '$ sshpm init'
+]
+
 module.exports = InitCommand

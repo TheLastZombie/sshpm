@@ -35,8 +35,8 @@ The commands themselves are pretty self-explanatory, and a typical workflow migh
 
 ```
 sshpm init
-sshpm login "Server 1" -h example.com -p 22 -u username -p password
-sshpm login "Server 2" -h example.com -p 22 -u username -k id_rsa
+sshpm login "Server 1" -h example.com -o 22 -u username -p password
+sshpm login "Server 2" -h example.com -o 22 -u username -k id_rsa
 sshpm test "Server 1"
 sshpm list
 sshpm apply

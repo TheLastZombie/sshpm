@@ -41,4 +41,9 @@ ListCommand.flags = {
   json: flags.boolean({ char: 'j', description: 'output in JSON format' })
 }
 
+ListCommand.examples = [
+  '$ sshpm list',
+  '$ sshpm list -j'
+]
+
 module.exports = ListCommand

@@ -27,4 +27,8 @@ LogoutCommand.args = [
   { name: 'name', description: 'profile name', required: true }
 ]
 
+LogoutCommand.examples = [
+  '$ sshpm logout Server'
+]
+
 module.exports = LogoutCommand
