@@ -25,6 +25,12 @@ npm run dist
 
 After that, you'll (hopefully) find what you need inside the `dist` directory.
 
+### With NPX
+
+If you have NPM installed, you can also prepend all commands with `npx` (i.e. `npx sshpm help`).
+
+Keep in mind that this will use a temporary instead of a permanent installation, significantly increasing execution time, since NPX will download sshpm every time a command is run.
+
 ## Usage
 
 To show general help regarding sshpm, run `sshpm` or `sshpm help`.
