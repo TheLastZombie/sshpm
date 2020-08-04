@@ -25,6 +25,15 @@ npm run dist
 
 After that, you'll (hopefully) find what you need inside the `dist` directory.
 
+### Using Scoop
+
+If you use Scoop but don't want to install Node.js, you can also use my bucket to install sshpm:
+
+```
+scoop bucket add tlz https://github.com/TheLastZombie/scoop-bucket
+scoop install sshpm
+```
+
 ### With NPX
 
 If you have NPM installed, you can also prepend all commands with `npx` (i.e. `npx sshpm help`).
