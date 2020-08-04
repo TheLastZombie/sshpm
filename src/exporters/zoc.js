@@ -1,22 +1,23 @@
 module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
+  const iconv = require('iconv-lite')
 
   const outZoc = path.resolve(flags.conf || cli.config.home, 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini')
   if (!fs.existsSync(outZoc)) throw Error('ZOC configuration file does not exist')
 
   if (!flags.keep) {
-    let conf = fs.readFileSync(outZoc, 'utf-8')
+    let conf = iconv.decode(fs.readFileSync(outZoc), 'iso-8859-1')
     conf = conf
       .split('\r\n\r\n')
       .filter(x => !x.match(/\[HOST\].*memo="sshpm\//s))
       .join('\r\n\r\n')
-    fs.writeFileSync(outZoc, conf)
+    fs.writeFileSync(outZoc, iconv.encode(conf, 'iso-8859-1'))
   }
 
   data.forEach(element => {
     let tempZoc = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'HostDirectory.zocini'), 'utf-8')
-    let conf = fs.readFileSync(outZoc, 'utf-8')
+    let conf = iconv.decode(fs.readFileSync(outZoc), 'iso-8859-1')
     tempZoc = tempZoc
       .replace(/\$\(TIME\)/g, element.time)
       .replace(/\$\(NAME\)/g, element.name)
@@ -27,6 +28,6 @@ module.exports = (cli, data, flags) => {
       .replace(/\$\(KEY\)/g, element.key || '')
       .replace(/\$\(VERSION\)/g, cli.config.version)
     conf = conf.replace('[/DATA]', tempZoc + '\r\n[/DATA]')
-    fs.writeFileSync(outZoc, conf)
+    fs.writeFileSync(outZoc, iconv.encode(conf, 'iso-8859-1'))
   })
 }
