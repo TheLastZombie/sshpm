@@ -23,7 +23,7 @@ class LoginCommand extends Command {
       port: flags.port,
       user: flags.user,
       pass: flags.pass,
-      key: flags.key,
+      key: (flags.key ? path.resolve(flags.key) : undefined),
       time: Math.floor(Date.now() / 1000)
     })
 

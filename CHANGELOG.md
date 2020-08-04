@@ -12,6 +12,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Documentation for execution with NPX
 - Keywords for NPM
 
+### Changed
+
+- Use absolute path for key files
+
+### Removed
+
+- Note about OpenSSH key file support (works)
+
 ### Fixed
 
 - list command not printing anything
