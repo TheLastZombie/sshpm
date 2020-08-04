@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 - Examples for every command
+- Documentation for execution with NPX
 - Keywords for NPM
 
 ### Fixed
