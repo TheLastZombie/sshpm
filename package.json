@@ -32,7 +32,16 @@
   ],
   "homepage": "https://github.com/TheLastZombie/sshpm",
   "keywords": [
-    "oclif"
+    "config",
+    "configuration",
+    "connection",
+    "manager",
+    "oclif",
+    "openssh",
+    "profile",
+    "ssh",
+    "winscp",
+    "zoc"
   ],
   "license": "MIT",
   "main": "src/index.js",
