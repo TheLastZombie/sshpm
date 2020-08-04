@@ -61,6 +61,6 @@ sshpm apply
 
 The following programs are currently supported:
 
-- [OpenSSH](https://www.openssh.com/)
+- [OpenSSH](https://www.openssh.com/) (unstable: PuTTY key files may not work)
 - [WinSCP Portable](https://winscp.net/) (unstable: key conversion requires interaction)
 - [ZOC Terminal](https://www.emtec.com/zoc/)
