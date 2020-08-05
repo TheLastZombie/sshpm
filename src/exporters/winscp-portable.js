@@ -17,7 +17,7 @@ module.exports = (cli, data, flags) => {
   }
 
   data.forEach(element => {
-    if (element.key && !fs.readFileSync(element.key, 'utf-8').startsWith('PuTTY-User-Key-File')) {
+    if (element.key) {
       cli.log('Converting key... please close any appearing windows.')
       childProcess.spawn(flags.conf.replace('winscp.ini', 'WinSCP.exe'), ['/keygen', element.key, '/output=' + element.key + '.ppk'])
     }

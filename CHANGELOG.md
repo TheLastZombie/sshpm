@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
+- Always expect OpenSSH key format
 - Use absolute path for key files
 - NPM website to GitHub Pages link
 
