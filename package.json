@@ -8,9 +8,9 @@
   },
   "bugs": "https://github.com/TheLastZombie/sshpm/issues",
   "dependencies": {
-    "@oclif/command": "^1.7.0",
-    "@oclif/config": "^1.16.0",
-    "@oclif/plugin-help": "^3.1.0",
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "@oclif/plugin-help": "^3.2.0",
     "@oclif/plugin-not-found": "^1.2.4",
     "cli-ux": "^5.4.9",
     "iconv-lite": "^0.6.2",
