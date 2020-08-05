@@ -32,7 +32,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://thelastzombie.github.io/sshpm/",
+  "homepage": "https://git.io/sshpm",
   "keywords": [
     "config",
     "configuration",
