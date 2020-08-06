@@ -15,6 +15,8 @@ class ResetCommand extends Command {
   }
 }
 
+ResetCommand.aliases = ['rm']
+
 ResetCommand.description = 'delete all profiles'
 
 ResetCommand.examples = [

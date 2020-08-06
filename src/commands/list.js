@@ -35,6 +35,8 @@ class ListCommand extends Command {
   }
 }
 
+ListCommand.aliases = ['ls']
+
 ListCommand.description = 'list profiles'
 
 ListCommand.flags = {

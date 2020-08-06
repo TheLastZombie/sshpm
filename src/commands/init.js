@@ -15,6 +15,8 @@ class InitCommand extends Command {
   }
 }
 
+InitCommand.aliases = ['touch']
+
 InitCommand.description = 'create an empty configuration file'
 
 InitCommand.examples = [
