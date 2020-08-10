@@ -17,10 +17,7 @@ module.exports = (cli, data, flags) => {
   }
 
   data.forEach(element => {
-    if (element.key) {
-      cli.log('Converting key... please close any appearing windows.')
-      childProcess.spawn(flags.conf.replace('winscp.ini', 'WinSCP.exe'), ['/keygen', element.key, '/output=' + element.key + '.ppk'])
-    }
+    if (element.key) childProcess.spawn(flags.conf.replace('winscp.ini', 'WinSCP.com'), ['/keygen', element.key, '/output=' + element.key + '.ppk'])
     let tempWscp = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'winscp.ini'), 'utf-8')
     let conf = fs.readFileSync(outWscp, 'utf-8')
     tempWscp = tempWscp
