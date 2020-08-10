@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Make name argument optional for login
 - Convert SSH keys automatically using WinSCP.com
+- Merge init and reset commands
 - Update dependencies
 
 ## [0.2.0] - 2020-08-05

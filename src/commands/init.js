@@ -9,15 +9,13 @@ class InitCommand extends Command {
     const file = path.resolve(dir, 'config.json')
 
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
-    if (fs.existsSync(file)) throw Error('configuration file already exists')
-
     fs.writeFileSync(file, '[]')
   }
 }
 
-InitCommand.aliases = ['touch']
+InitCommand.aliases = ['touch', 'reset', 'rm']
 
-InitCommand.description = 'create an empty configuration file'
+InitCommand.description = 'create or reset the profile file'
 
 InitCommand.examples = [
   '$ sshpm init'
