@@ -9,16 +9,17 @@ class LoginCommand extends Command {
 
     const dir = this.config.configDir
     const file = path.resolve(dir, 'config.json')
+    const name = args.name || flags.user + '@' + flags.host
 
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
     if (!fs.existsSync(file)) fs.writeFileSync(file, '[]')
 
     const data = JSON.parse(fs.readFileSync(file, 'utf-8'))
-    if (data.map(x => x.name).includes(args.name)) throw Error('a profile with the same name already exists')
+    if (data.map(x => x.name).includes(name)) throw Error('a profile with the same name already exists')
     if (flags.key && !fs.existsSync(flags.key) && !flags.force) throw Error('key file does not exist, use -f to continue')
 
     data.push({
-      name: args.name,
+      name: name,
       host: flags.host,
       port: flags.port,
       user: flags.user,
@@ -34,7 +35,7 @@ class LoginCommand extends Command {
 LoginCommand.description = 'add a new profile'
 
 LoginCommand.args = [
-  { name: 'name', description: 'profile name', required: true }
+  { name: 'name', description: 'profile name' }
 ]
 
 LoginCommand.flags = {
@@ -47,7 +48,7 @@ LoginCommand.flags = {
 }
 
 LoginCommand.examples = [
-  '$ sshpm login Server -h example.com -u username',
+  '$ sshpm login -h example.com -u username',
   '$ sshpm login Server -h example.com -o 22 -u username -p password',
   '$ sshpm login Server -h example.com -o 22 -u username -k id_rsa'
 ]
