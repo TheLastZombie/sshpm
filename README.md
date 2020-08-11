@@ -102,6 +102,7 @@ sshpm apply
 The following programs are currently supported:
 
 - [OpenSSH](https://www.openssh.com/)
+- [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 - [WinSCP](https://winscp.net/)
 - [WinSCP Portable](https://winscp.net/)
 - [ZOC Terminal](https://www.emtec.com/zoc/)
