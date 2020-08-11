@@ -102,5 +102,6 @@ sshpm apply
 The following programs are currently supported:
 
 - [OpenSSH](https://www.openssh.com/)
+- [WinSCP](https://winscp.net/)
 - [WinSCP Portable](https://winscp.net/)
 - [ZOC Terminal](https://www.emtec.com/zoc/)
