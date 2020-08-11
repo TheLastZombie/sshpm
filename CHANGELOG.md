@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated NPM keywords
+- Update NPM keywords
 
 ## [0.3.0] - 2020-08-11
 
