@@ -101,6 +101,7 @@ sshpm apply
 
 The following programs are currently supported:
 
+- [mRemoteNG](https://mremoteng.org/)
 - [OpenSSH](https://www.openssh.com/)
 - [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 - [WinSCP](https://winscp.net/)

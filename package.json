@@ -39,6 +39,7 @@
     "configuration",
     "connection",
     "manager",
+    "mremoteng",
     "oclif",
     "openssh",
     "profile",
