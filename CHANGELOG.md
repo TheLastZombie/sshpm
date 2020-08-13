@@ -15,6 +15,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Update NPM keywords
 
+### Fixed
+
+- Wrong configuration path being resolved
+
 ## [0.3.0] - 2020-08-11
 
 ### Added

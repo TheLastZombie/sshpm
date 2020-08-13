@@ -3,7 +3,7 @@ module.exports = (cli, data, flags) => {
   const fs = require('fs')
   const iconv = require('iconv-lite')
 
-  const outZoc = path.resolve(flags.conf || cli.config.home, 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini')
+  const outZoc = path.resolve(flags.conf || (cli.config.home, 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini'))
   if (!fs.existsSync(outZoc)) throw Error('ZOC configuration file does not exist')
 
   if (!flags.keep) {
