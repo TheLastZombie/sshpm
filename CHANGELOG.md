@@ -6,8 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Allow multiple programs for apply
+
 ### Changed
 
+- Configuration file syntax to program:file
+- Make apply command more verbose
 - Update NPM keywords
 
 ## [0.3.0] - 2020-08-11
