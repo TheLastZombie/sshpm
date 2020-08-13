@@ -8,12 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Allow multiple programs for apply
+- Allow multiple programs for apply and logout
 
 ### Changed
 
 - Configuration file syntax to program:file
-- Make apply command more verbose
+- Make apply and logout more verbose
 - Update NPM keywords
 
 ## [0.3.0] - 2020-08-11
