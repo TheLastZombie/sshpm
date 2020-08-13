@@ -14,15 +14,10 @@ class LogoutCommand extends Command {
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
 
     let data = JSON.parse(fs.readFileSync(file, 'utf-8'))
+    if (!data.map(x => x.name).includes(args.name)) throw Error('specified profile not found')
+    data = data.filter(x => x.name !== args.name)
 
-    const names = args.name.split(',')
-    names.forEach(name => {
-      this.log('Removing profile ' + name + '...')
-      if (!data.map(x => x.name).includes(name)) throw Error('profile ' + name + ' not found')
-
-      data = data.filter(x => x.name !== name)
-      fs.writeFileSync(file, JSON.stringify(data))
-    })
+    fs.writeFileSync(file, JSON.stringify(data))
   }
 }
 
@@ -33,8 +28,7 @@ LogoutCommand.args = [
 ]
 
 LogoutCommand.examples = [
-  '$ sshpm logout Server',
-  '$ sshpm logout "Server 1,Server 2"'
+  '$ sshpm logout Server'
 ]
 
 module.exports = LogoutCommand
