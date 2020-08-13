@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Allow multiple arguments for apply and logout
+- Allow multiple programs for apply and logout
 
 ### Changed
 
