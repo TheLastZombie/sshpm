@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Super-Linter via GitHub Actions
+
 ### Changed
 
 - Update NPM keywords
