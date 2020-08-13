@@ -15,43 +15,31 @@ class ApplyCommand extends Command {
 
     const data = JSON.parse(fs.readFileSync(file, 'utf-8'))
 
-    const programs = args.program.split(',')
-
-    programs.forEach(program => {
-      const file = path.resolve(__dirname, '..', 'exporters', program + '.js')
-      if (!fs.existsSync(file)) throw Error('program ' + program + ' is not supported')
-
-      let conf
-      if (flags.conf) conf = flags.conf.filter(x => x.startsWith(program + ':'))[0]
-      if (conf) conf = conf.slice(program.length + 1)
-
-      this.log('Sending profile to ' + program + '...')
-      require(file)(this, data, {
-        ...flags,
-        conf: conf
-      })
-    })
+    require(path.resolve(__dirname, '..', 'exporters', args.program + '.js'))(this, data, flags)
   }
 }
+
+const fs = require('fs')
+const path = require('path')
+const exporters = fs.readdirSync(path.resolve(__dirname, '..', 'exporters')).map(x => path.parse(x).name)
 
 ApplyCommand.description = 'send profiles to programs'
 
 ApplyCommand.args = [
-  { name: 'program', description: 'program to send profiles to', required: true }
+  { name: 'program', description: 'program to send profiles to', required: true, options: exporters }
 ]
 
 ApplyCommand.flags = {
   keep: flags.boolean({ char: 'k', description: 'keep previous profiles sent by sshpm' }),
-  conf: flags.string({ char: 'c', description: 'application configuration files', multiple: true })
+  conf: flags.string({ char: 'c', description: 'application configuration file' })
 }
 
 ApplyCommand.examples = [
   '$ sshpm apply openssh',
   '$ sshpm apply putty',
   '$ sshpm apply winscp',
-  '$ sshpm apply winscp-portable -c winscp-portable:winscp.ini',
-  '$ sshpm apply zoc',
-  '$ sshpm apply x,y,z'
+  '$ sshpm apply winscp-portable -c winscp.ini',
+  '$ sshpm apply zoc'
 ]
 
 module.exports = ApplyCommand
