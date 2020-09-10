@@ -101,10 +101,12 @@ sshpm apply
 
 The following programs are currently supported:
 
-- [mRemoteNG](https://mremoteng.org/)
-- [OpenSSH](https://www.openssh.com/)
-- [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
-- [rclone](https://rclone.org/)
-- [WinSCP](https://winscp.net/)
-- [WinSCP Portable](https://winscp.net/)
-- [ZOC Terminal](https://www.emtec.com/zoc/)
+|                                                              | Name | Host | Port | User | Password | Key |
+| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :------: | :-: |
+| [mRemoteNG](https://mremoteng.org/)                          | ✕    | ✕    | ✕    | ✕    |          |     |
+| [OpenSSH](https://www.openssh.com/)                          | ✕    | ✕    | ✕    | ✕    |          | ✕   |
+| [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) | ✕    | ✕    | ✕    | ✕    |          | ✕   |
+| [rclone](https://rclone.org/)                                | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
+| [WinSCP](https://winscp.net/)                                | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
+| [WinSCP Portable](https://winscp.net/)                       | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
+| [ZOC Terminal](https://www.emtec.com/zoc/)                   | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
