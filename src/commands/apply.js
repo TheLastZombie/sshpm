@@ -38,6 +38,7 @@ ApplyCommand.examples = [
   '$ sshpm apply mremoteng',
   '$ sshpm apply openssh',
   '$ sshpm apply putty',
+  '$ sshpm apply rclone',
   '$ sshpm apply winscp',
   '$ sshpm apply winscp-portable -c winscp.ini',
   '$ sshpm apply zoc'
