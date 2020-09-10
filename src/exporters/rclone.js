@@ -19,7 +19,7 @@ module.exports = (cli, data, flags) => {
     if (element.pass && !flags.conf) return cli.log('Error: rclone not specified, please point to it using -c')
 
     var pass
-    if (element.pass) pass = childProcess.spawnSync('rclone', ['obscure', element.pass], { encoding: 'utf-8' }).output[1].trim()
+    if (element.pass) pass = childProcess.spawnSync(flags.conf, ['obscure', element.pass], { encoding: 'utf-8' }).output[1].trim()
     let tempRcl = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'rclone.conf'), 'utf-8')
     let conf = fs.readFileSync(outRcl, 'utf-8')
     tempRcl = tempRcl
