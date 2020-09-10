@@ -2,7 +2,8 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
 
-  const outMrng = path.resolve(flags.conf || (cli.config.home, 'AppData', 'Roaming', 'mRemoteNG', 'confCons.xml'))
+  var outMrng = path.resolve(cli.config.home, 'AppData', 'Roaming', 'mRemoteNG', 'confCons.xml')
+  if (flags.conf) outMrng = path.resolve(flags.conf)
   if (!fs.existsSync(outMrng)) throw Error('mRemoteNG configuration file does not exist')
 
   if (!flags.keep) {
