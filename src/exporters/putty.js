@@ -12,9 +12,9 @@ module.exports = async (cli, data, flags) => {
   }
 
   data.forEach(async element => {
-    if (element.key && !flags.conf) return cli.log('Error: WinSCP.com not specified, please point to it using -c')
+    if (element.key && !flags.exec) return cli.log('Error: WinSCP.com not specified, please point to it using -x')
 
-    if (element.key) childProcess.spawn(flags.conf, ['/keygen', element.key, '/output=' + element.key + '.ppk'])
+    if (element.key) childProcess.spawn(flags.exec, ['/keygen', element.key, '/output=' + element.key + '.ppk'])
     const key = 'HKCU\\SOFTWARE\\SimonTatham\\PuTTY\\Sessions\\' + element.name.replace(/\s/g, '%20')
     await Registry.set(key, 'HostName', element.host)
     await Registry.set(key, 'PortNumber', Number(element.port))
