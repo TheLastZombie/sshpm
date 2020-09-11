@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 - Wrong configuration path being resolved
+- Error when looking for non-existent registry keys
 
 ## [0.3.0] - 2020-08-11
 

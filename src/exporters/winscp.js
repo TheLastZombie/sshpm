@@ -4,10 +4,12 @@ module.exports = async (cli, data, flags) => {
 
   if (!flags.keep) {
     const conf = await Registry.get('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions')
-    for (const element of Object.keys(conf)) {
-      const x = await Registry.get('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions\\' + element)
-      if (!x || !x.$values.sshpm) continue
-      await Registry.delete('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions\\' + element)
+    if (conf) {
+      for (const element of Object.keys(conf)) {
+        const x = await Registry.get('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions\\' + element)
+        if (!x || !x.$values.sshpm) continue
+        await Registry.delete('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions\\' + element)
+      }
     }
   }
 

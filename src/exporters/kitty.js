@@ -4,10 +4,12 @@ module.exports = async (cli, data, flags) => {
 
   if (!flags.keep) {
     const conf = await Registry.get('HKCU\\SOFTWARE\\9bis.com\\KiTTY\\Sessions')
-    for (const element of Object.keys(conf)) {
-      const x = await Registry.get('HKCU\\SOFTWARE\\9bis.com\\KiTTY\\Sessions\\' + element)
-      if (!x || !x.$values.sshpm) continue
-      await Registry.delete('HKCU\\SOFTWARE\\9bis.com\\KiTTY\\Sessions\\' + element)
+    if (conf) {
+      for (const element of Object.keys(conf)) {
+        const x = await Registry.get('HKCU\\SOFTWARE\\9bis.com\\KiTTY\\Sessions\\' + element)
+        if (!x || !x.$values.sshpm) continue
+        await Registry.delete('HKCU\\SOFTWARE\\9bis.com\\KiTTY\\Sessions\\' + element)
+      }
     }
   }
 
