@@ -103,6 +103,7 @@ The following programs are currently supported:
 
 |                                                              | Name | Host | Port | User | Password | Key |
 | :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :------: | :-: |
+| [KiTTY](https://9bis.net/kitty/#!index.md)                   | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [mRemoteNG](https://mremoteng.org/)                          | ✕    | ✕    | ✕    | ✕    |          |     |
 | [OpenSSH](https://www.openssh.com/)                          | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) | ✕    | ✕    | ✕    | ✕    |          | ✕   |

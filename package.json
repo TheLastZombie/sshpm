@@ -38,6 +38,7 @@
     "config",
     "configuration",
     "connection",
+    "kitty",
     "manager",
     "mremoteng",
     "oclif",

@@ -36,6 +36,7 @@ ApplyCommand.flags = {
 }
 
 ApplyCommand.examples = [
+  '$ sshpm apply kitty',
   '$ sshpm apply mremoteng',
   '$ sshpm apply openssh',
   '$ sshpm apply putty',
