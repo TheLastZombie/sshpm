@@ -2,6 +2,7 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
   const childProcess = require('child_process')
+  const pathRClone = require('rclone-bin').pathRClone
 
   var outRcl = path.resolve(cli.config.home, '.config', 'rclone', 'rclone.conf')
   if (flags.conf) outRcl = path.resolve(flags.conf)
@@ -17,10 +18,8 @@ module.exports = (cli, data, flags) => {
   }
 
   data.forEach(element => {
-    if (element.pass && !flags.exec) return cli.log('Error: rclone not specified, please point to it using -x')
-
     var pass
-    if (element.pass) pass = childProcess.spawnSync(flags.exec, ['obscure', element.pass], { encoding: 'utf-8' }).output[1].trim()
+    if (element.pass) pass = childProcess.spawnSync(flags.exec || pathRClone, ['obscure', element.pass], { encoding: 'utf-8' }).output[1].trim()
     let tempRcl = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'rclone.conf'), 'utf-8')
     let conf = fs.readFileSync(outRcl, 'utf-8')
     tempRcl = tempRcl

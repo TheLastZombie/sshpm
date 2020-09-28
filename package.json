@@ -16,6 +16,7 @@
     "iconv-lite": "^0.6.2",
     "open": "^7.2.1",
     "rage-edit": "^1.2.0",
+    "rclone-bin": "^1.51.0",
     "ssh2": "^0.8.9"
   },
   "devDependencies": {
