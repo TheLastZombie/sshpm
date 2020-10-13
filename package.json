@@ -14,14 +14,14 @@
     "@oclif/plugin-not-found": "^1.2.4",
     "cli-ux": "^5.5.0",
     "iconv-lite": "^0.6.2",
-    "open": "^7.2.1",
+    "open": "^7.3.0",
     "rage-edit": "^1.2.0",
     "rclone-bin": "^1.51.0",
     "ssh2": "^0.8.9"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
-    "globby": "^10.0.2",
+    "globby": "^11.0.1",
     "rimraf": "^3.0.2",
     "standard": "^14.3.4"
   },
