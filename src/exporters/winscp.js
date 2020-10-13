@@ -2,7 +2,7 @@ module.exports = async (cli, data, flags) => {
   const { Registry } = require('rage-edit')
   const childProcess = require('child_process')
 
-  if (!await Registry.has('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions')) throw Error('WinSCP configuration key does not exist')
+  if (!flags.init && !await Registry.has('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions')) throw Error('WinSCP configuration key does not exist')
 
   if (!flags.keep) {
     const conf = await Registry.get('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions')

@@ -4,6 +4,7 @@ module.exports = (cli, data, flags) => {
 
   var outMrng = path.resolve(cli.config.home, 'AppData', 'Roaming', 'mRemoteNG', 'confCons.xml')
   if (flags.conf) outMrng = path.resolve(flags.conf)
+  if (flags.init) throw Error('mRemoteNG does not support automatically creating configuration files')
   if (!fs.existsSync(outMrng)) throw Error('mRemoteNG configuration file does not exist')
 
   if (!flags.keep) {

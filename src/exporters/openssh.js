@@ -4,6 +4,7 @@ module.exports = (cli, data, flags) => {
 
   var outSsh = path.resolve(cli.config.home, '.ssh', 'config')
   if (flags.conf) outSsh = path.resolve(flags.conf)
+  if (flags.init) fs.openSync(outSsh, 'a')
   if (!fs.existsSync(outSsh)) throw Error('OpenSSH configuration file does not exist')
 
   if (!flags.keep) {

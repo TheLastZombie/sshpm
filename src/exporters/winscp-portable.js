@@ -5,6 +5,7 @@ module.exports = (cli, data, flags) => {
 
   if (!flags.conf) throw Error('no WinSCP configuration file specified')
   const outWscp = path.resolve(flags.conf)
+  if (flags.init) fs.openSync(outWscp, 'a')
   if (!fs.existsSync(outWscp)) throw Error('WinSCP configuration file does not exist')
 
   if (!flags.keep) {

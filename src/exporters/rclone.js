@@ -6,6 +6,7 @@ module.exports = (cli, data, flags) => {
 
   var outRcl = path.resolve(cli.config.home, '.config', 'rclone', 'rclone.conf')
   if (flags.conf) outRcl = path.resolve(flags.conf)
+  if (flags.init) fs.openSync(outRcl, 'a')
   if (!fs.existsSync(outRcl)) throw Error('rclone configuration file does not exist')
 
   if (!flags.keep) {
