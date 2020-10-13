@@ -5,7 +5,10 @@ module.exports = (cli, data, flags) => {
 
   var outZoc = path.resolve(cli.config.home, 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini')
   if (flags.conf) outZoc = path.resolve(flags.conf)
-  if (flags.init) fs.writeFileSync(outZoc, 'ZOC\n[DATA]\n[/DATA]')
+  if (flags.init) {
+    if (!fs.existsSync(path.dirname(outZoc))) fs.mkdirSync(path.dirname(outZoc))
+    fs.writeFileSync(outZoc, 'ZOC\n[DATA]\n[/DATA]')
+  }
   if (!fs.existsSync(outZoc)) throw Error('ZOC configuration file does not exist')
 
   if (!flags.keep) {
