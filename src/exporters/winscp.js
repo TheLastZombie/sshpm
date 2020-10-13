@@ -19,7 +19,7 @@ module.exports = async (cli, data, flags) => {
     if (element.key && !flags.exec) return cli.log('Error: WinSCP.com not specified, please point to it using -x')
 
     if (element.key) childProcess.spawn(flags.exec, ['/keygen', element.key, '/output=' + element.key + '.ppk'])
-    const key = 'HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions\\' + element.name.replace(/\s/g, '%20')
+    const key = 'HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions\\' + encodeURIComponent(element.name)
     await Registry.set(key, 'HostName', element.host)
     await Registry.set(key, 'PortNumber', Number(element.port))
     await Registry.set(key, 'UserName', element.user)

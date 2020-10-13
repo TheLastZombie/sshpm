@@ -25,7 +25,7 @@ module.exports = (cli, data, flags) => {
     let tempWscp = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'winscp.ini'), 'utf-8')
     let conf = fs.readFileSync(outWscp, 'utf-8')
     tempWscp = tempWscp
-      .replace(/\$\(NAME\)/g, element.name.replace(/\s/g, '%20'))
+      .replace(/\$\(NAME\)/g, '%EF%BB%BF' + encodeURIComponent(element.name))
       .replace(/\$\(HOST\)/g, element.host)
       .replace(/\$\(PORT\)/g, element.port)
       .replace(/\$\(USER\)/g, element.user)
