@@ -28,7 +28,7 @@ class LoginCommand extends Command {
       time: Math.floor(Date.now() / 1000)
     })
 
-    fs.writeFileSync(file, JSON.stringify(data))
+    fs.writeFileSync(file, JSON.stringify(data.sort((x, y) => x.name.localeCompare(y.name))))
   }
 }
 

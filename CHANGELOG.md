@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 - -i flag to create non-existent configuration files
+- Automatically sort connections on login
 
 ### Changed
 
