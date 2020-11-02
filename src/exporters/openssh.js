@@ -2,7 +2,7 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
 
-  var outSsh = path.resolve(cli.config.home, '.ssh', 'config')
+  let outSsh = path.resolve(cli.config.home, '.ssh', 'config')
   if (flags.conf) outSsh = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outSsh))) fs.mkdirSync(path.dirname(outSsh))

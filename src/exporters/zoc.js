@@ -3,7 +3,7 @@ module.exports = (cli, data, flags) => {
   const fs = require('fs')
   const iconv = require('iconv-lite')
 
-  var outZoc = path.resolve(cli.config.home, 'Documents', 'ZOC8 Files', 'Options', 'HostDirectory.zhd')
+  let outZoc = path.resolve(cli.config.home, 'Documents', 'ZOC8 Files', 'Options', 'HostDirectory.zhd')
   if (flags.conf) outZoc = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outZoc))) fs.mkdirSync(path.dirname(outZoc))

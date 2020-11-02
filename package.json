@@ -23,7 +23,7 @@
     "@oclif/dev-cli": "^1.22.2",
     "globby": "^11.0.1",
     "rimraf": "^3.0.2",
-    "standard": "^15.0.0"
+    "standard": "^16.0.1"
   },
   "engines": {
     "node": ">=8.0.0"

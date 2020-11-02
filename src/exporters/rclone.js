@@ -4,7 +4,7 @@ module.exports = (cli, data, flags) => {
   const childProcess = require('child_process')
   const pathRClone = require('rclone-bin').pathRClone
 
-  var outRcl = path.resolve(cli.config.home, '.config', 'rclone', 'rclone.conf')
+  let outRcl = path.resolve(cli.config.home, '.config', 'rclone', 'rclone.conf')
   if (flags.conf) outRcl = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outRcl))) fs.mkdirSync(path.dirname(outRcl))
@@ -22,7 +22,7 @@ module.exports = (cli, data, flags) => {
   }
 
   data.forEach(element => {
-    var pass
+    let pass
     if (element.pass) pass = childProcess.spawnSync(flags.exec || pathRClone, ['obscure', element.pass], { encoding: 'utf-8' }).output[1].trim()
     let tempRcl = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'rclone.conf'), 'utf-8')
     let conf = fs.readFileSync(outRcl, 'utf-8')
