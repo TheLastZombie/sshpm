@@ -3,7 +3,7 @@ module.exports = (cli, data, flags) => {
   const fs = require('fs')
   const iconv = require('iconv-lite')
 
-  var outZoc = path.resolve(cli.config.home, 'Documents', 'ZOC7 Files', 'Options', 'HostDirectory.zocini')
+  var outZoc = path.resolve(cli.config.home, 'Documents', 'ZOC8 Files', 'Options', 'HostDirectory.zhd')
   if (flags.conf) outZoc = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outZoc))) fs.mkdirSync(path.dirname(outZoc))
@@ -21,7 +21,7 @@ module.exports = (cli, data, flags) => {
   }
 
   data.forEach(element => {
-    let tempZoc = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'HostDirectory.zocini'), 'utf-8')
+    let tempZoc = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'HostDirectory.zhd'), 'utf-8')
     let conf = iconv.decode(fs.readFileSync(outZoc), 'iso-8859-1')
     tempZoc = tempZoc
       .replace(/\$\(TIME\)/g, element.time)
@@ -29,7 +29,6 @@ module.exports = (cli, data, flags) => {
       .replace(/\$\(HOST\)/g, element.host)
       .replace(/\$\(PORT\)/g, element.port)
       .replace(/\$\(USER\)/g, element.user)
-      .replace(/\$\(PASS\)/g, element.pass || '')
       .replace(/\$\(KEY\)/g, element.key || '')
       .replace(/\$\(VERSION\)/g, cli.config.version)
     conf = conf.replace('[/DATA]', tempZoc + '\r\n[/DATA]')

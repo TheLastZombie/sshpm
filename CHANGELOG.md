@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
+- Update ZOC exporter for version 8
 - Error if registry entries do not exist
 - Ship rclone internally
 - Update dependencies

@@ -110,4 +110,4 @@ The following programs are currently supported:
 | [rclone](https://rclone.org/)                                | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
 | [WinSCP](https://winscp.net/)                                | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
 | [WinSCP Portable](https://winscp.net/)                       | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
-| [ZOC Terminal](https://www.emtec.com/zoc/)                   | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
+| [ZOC Terminal](https://www.emtec.com/zoc/)                   | ✕    | ✕    | ✕    | ✕    |          | ✕   |
