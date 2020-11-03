@@ -103,6 +103,7 @@ The following programs are currently supported:
 
 |                                                              | Name | Host | Port | User | Password | Key |
 | :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :------: | :-: |
+| [FileZilla](https://filezilla-project.org/)                  | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
 | [KiTTY](https://9bis.net/kitty/#!index.md)                   | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [mRemoteNG](https://mremoteng.org/)                          | ✕    | ✕    | ✕    | ✕    |          |     |
 | [OpenSSH](https://www.openssh.com/)                          | ✕    | ✕    | ✕    | ✕    |          | ✕   |
