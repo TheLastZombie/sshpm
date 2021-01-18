@@ -36,17 +36,6 @@ ApplyCommand.flags = {
   exec: flags.string({ char: 'x', description: 'path to executable required by exporter' })
 }
 
-ApplyCommand.examples = [
-  '$ sshpm apply filezilla',
-  '$ sshpm apply kitty',
-  '$ sshpm apply mremoteng',
-  '$ sshpm apply openssh',
-  '$ sshpm apply putty',
-  '$ sshpm apply rclone',
-  '$ sshpm apply remmina -c remmina',
-  '$ sshpm apply winscp',
-  '$ sshpm apply winscp-portable -c winscp.ini',
-  '$ sshpm apply zoc'
-]
+ApplyCommand.examples = fs.readdirSync(path.resolve(__dirname, '..', 'exporters')).map(x => '$ sshpm apply ' + path.parse(x).name)
 
 module.exports = ApplyCommand
