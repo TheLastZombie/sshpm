@@ -1,0 +1,8 @@
+[remmina]
+name=$(NAME)
+protocol=SSH
+server=$(HOST):$(PORT)
+ssh_auth=$(TYPE)
+ssh_privatekey=$(KEY)
+sshpm=$(VERSION)
+username=$(USER)

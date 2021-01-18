@@ -109,6 +109,7 @@ The following programs are currently supported:
 | [OpenSSH](https://www.openssh.com/)                          | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [rclone](https://rclone.org/)                                | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
+| [Remmina](https://remmina.org/)                              | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [WinSCP](https://winscp.net/)                                | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
 | [WinSCP Portable](https://winscp.net/)                       | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
 | [ZOC Terminal](https://www.emtec.com/zoc/)                   | ✕    | ✕    | ✕    | ✕    |          | ✕   |
