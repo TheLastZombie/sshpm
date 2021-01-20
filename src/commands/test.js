@@ -1,16 +1,22 @@
-const { Command } = require('@oclif/command')
+const { Command, flags } = require('@oclif/command')
 
 class TestCommand extends Command {
   async run () {
-    const { args } = this.parse(TestCommand)
+    const { args, flags } = this.parse(TestCommand)
 
     const path = require('path')
     const fs = require('fs')
     const Client = require('ssh2').Client
     const conn = new Client()
 
-    const dir = this.config.configDir
-    const file = path.resolve(dir, 'config.json')
+    let dir, file
+    if (flags.use) {
+      dir = path.dirname(flags.use)
+      file = path.resolve(dir, path.basename(flags.use))
+    } else {
+      dir = this.config.configDir
+      file = path.resolve(dir, 'config.json')
+    }
 
     if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
@@ -39,6 +45,10 @@ TestCommand.description = 'try to connect to a profile'
 TestCommand.args = [
   { name: 'name', description: 'profile name', required: true }
 ]
+
+TestCommand.flags = {
+  use: flags.string({ description: 'path to custom sshpm configuration file' })
+}
 
 TestCommand.examples = [
   '$ sshpm test Server'

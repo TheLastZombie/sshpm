@@ -1,14 +1,20 @@
-const { Command } = require('@oclif/command')
+const { Command, flags } = require('@oclif/command')
 
 class LogoutCommand extends Command {
   async run () {
-    const { args } = this.parse(LogoutCommand)
+    const { args, flags } = this.parse(LogoutCommand)
 
     const path = require('path')
     const fs = require('fs')
 
-    const dir = this.config.configDir
-    const file = path.resolve(dir, 'config.json')
+    let dir, file
+    if (flags.use) {
+      dir = path.dirname(flags.use)
+      file = path.resolve(dir, path.basename(flags.use))
+    } else {
+      dir = this.config.configDir
+      file = path.resolve(dir, 'config.json')
+    }
 
     if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
@@ -26,6 +32,10 @@ LogoutCommand.description = 'delete an existing profile'
 LogoutCommand.args = [
   { name: 'name', description: 'profile name', required: true }
 ]
+
+LogoutCommand.flags = {
+  use: flags.string({ description: 'path to custom sshpm configuration file' })
+}
 
 LogoutCommand.examples = [
   '$ sshpm logout Server'

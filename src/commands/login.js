@@ -7,8 +7,15 @@ class LoginCommand extends Command {
     const path = require('path')
     const fs = require('fs')
 
-    const dir = this.config.configDir
-    const file = path.resolve(dir, 'config.json')
+    let dir, file
+    if (flags.use) {
+      dir = path.dirname(flags.use)
+      file = path.resolve(dir, path.basename(flags.use))
+    } else {
+      dir = this.config.configDir
+      file = path.resolve(dir, 'config.json')
+    }
+
     const name = args.name || flags.user + '@' + flags.host
 
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
@@ -39,6 +46,7 @@ LoginCommand.args = [
 ]
 
 LoginCommand.flags = {
+  use: flags.string({ description: 'path to custom sshpm configuration file' }),
   host: flags.string({ char: 'h', description: 'SSH host or IP', required: true }),
   port: flags.string({ char: 'o', description: 'custom SSH port', default: 22 }),
   user: flags.string({ char: 'u', description: 'SSH user name', required: true }),
