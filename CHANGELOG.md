@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Update NPM keywords
 - Update license for 2021
 
+### Fixed
+
+- Connections not being imported into mRemoteNG if none are available
+
 ## [0.5.0] - 2020-11-02
 
 ### Added

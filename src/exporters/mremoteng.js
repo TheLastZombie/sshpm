@@ -25,6 +25,7 @@ module.exports = (cli, data, flags) => {
       .replace(/\$\(PORT\)/g, element.port)
       .replace(/\$\(USER\)/g, element.user)
       .replace(/\$\(VERSION\)/g, cli.config.version)
+    conf = conf.replace(/(?<=<mrng:Connections .*?) \/>/, '></mrng:Connections>')
     conf = conf.replace('</mrng:Connections>', tempMrng + '</mrng:Connections>')
     fs.writeFileSync(outMrng, conf)
   })
