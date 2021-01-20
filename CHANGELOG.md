@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Automatically generate examples for apply command
 - Update NPM keywords
 - Update license for 2021
+- Update dependencies
 
 ### Fixed
 
