@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 - Connections not being imported into mRemoteNG if none are available
+- Connection details not being imported into WinSCP Portable
 
 ## [0.5.0] - 2020-11-02
 
