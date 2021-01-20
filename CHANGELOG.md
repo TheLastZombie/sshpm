@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Support for FileZilla
 - Support for Remmina
 - --use flag to point to custom sshpm configuration
+- Documentation for execution from source without compiling
 
 ### Changed
 

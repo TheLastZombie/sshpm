@@ -50,6 +50,13 @@ Download the [latest release](https://github.com/TheLastZombie/sshpm/releases/la
 git clone https://github.com/TheLastZombie/sshpm
 cd sshpm
 npm i
+```
+
+To run sshpm without compiling, use `npm start --` instead of `sshpm` (i.e. `npm start -- help`).
+
+To compile sshpm, run the distribution script:
+
+```
 npm run dist
 ```
 
