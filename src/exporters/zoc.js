@@ -10,6 +10,7 @@ module.exports = (cli, data, flags) => {
     fs.writeFileSync(outZoc, 'ZOC\n[DATA]\n[/DATA]')
   }
   if (!fs.existsSync(outZoc)) throw Error('ZOC configuration file does not exist')
+  if (fs.readFileSync(outZoc, 'utf-8').includes('\nCrypto=')) throw Error('ZOC configuration file is encrypted and, as such, not supported')
 
   if (!flags.keep) {
     let conf = iconv.decode(fs.readFileSync(outZoc), 'iso-8859-1')

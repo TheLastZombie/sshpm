@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
+- Error if application configuration file is encrypted
 - Automatically generate examples for apply command
 - Exclude assets from .editorconfig
 - Update NPM keywords

@@ -11,6 +11,7 @@ module.exports = (cli, data, flags) => {
     fs.openSync(outRcl, 'a')
   }
   if (!fs.existsSync(outRcl)) throw Error('rclone configuration file does not exist')
+  if (fs.readFileSync(outRcl, 'utf-8').startsWith('# Encrypted rclone configuration File')) throw Error('rclone configuration file is encrypted and, as such, not supported')
 
   if (!flags.keep) {
     let conf = fs.readFileSync(outRcl, 'utf-8')
