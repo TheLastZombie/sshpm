@@ -9,3 +9,10 @@ insert_final_newline = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+[/src/assets/**]
+indent_style = unset
+indent_size = unset
+charset = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset

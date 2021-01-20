@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Automatically generate examples for apply command
+- Exclude assets from .editorconfig
 - Update NPM keywords
 - Update license for 2021
 - Update dependencies
