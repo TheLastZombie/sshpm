@@ -2,6 +2,8 @@ module.exports = async (cli, data, flags) => {
   const { Registry } = require('rage-edit')
   const childProcess = require('child_process')
 
+  if (process.platform !== 'win32') throw Error('WinSCP uses registry entries, which are not supported on non-Windows systems')
+
   if (!flags.init && !await Registry.has('HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions')) throw Error('WinSCP configuration key does not exist')
 
   if (!flags.keep) {

@@ -2,8 +2,17 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
 
-  if (!flags.conf) throw Error('no Remmina configuration directory specified')
-  const outRem = path.resolve(flags.conf)
+  let outRem
+  switch (process.platform) {
+    case 'linux':
+      outRem = path.resolve(cli.config.home, '.local', 'share', 'remmina')
+      break
+    default:
+      if (!flags.conf) throw Error('could not reliably determine configuration location, please use -c')
+      break
+  }
+
+  if (flags.conf) outRem = path.resolve(flags.conf)
   if (flags.init && !fs.existsSync(outRem)) fs.mkdirSync(outRem)
   if (!fs.existsSync(outRem)) throw Error('Remmina configuration directory does not exist')
 

@@ -2,7 +2,19 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
 
-  let outFza = path.resolve(cli.config.home, 'AppData', 'Roaming', 'FileZilla', 'sitemanager.xml')
+  let outFza
+  switch (process.platform) {
+    case 'win32':
+      outFza = path.resolve(cli.config.home, 'AppData', 'Roaming', 'FileZilla', 'sitemanager.xml')
+      break
+    case 'linux':
+      outFza = path.resolve(cli.config.home, '.config', 'filezilla', 'sitemanager.xml')
+      break
+    default:
+      if (!flags.conf) throw Error('could not reliably determine configuration location, please use -c')
+      break
+  }
+
   if (flags.conf) outFza = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outFza))) fs.mkdirSync(path.dirname(outFza))

@@ -3,7 +3,16 @@ module.exports = (cli, data, flags) => {
   const fs = require('fs')
   const iconv = require('iconv-lite')
 
-  let outZoc = path.resolve(cli.config.home, 'Documents', 'ZOC8 Files', 'Options', 'HostDirectory.zhd')
+  let outZoc
+  switch (process.platform) {
+    case 'win32':
+      outZoc = path.resolve(cli.config.home, 'Documents', 'ZOC8 Files', 'Options', 'HostDirectory.zhd')
+      break
+    default:
+      if (!flags.conf) throw Error('could not reliably determine configuration location, please use -c')
+      break
+  }
+
   if (flags.conf) outZoc = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outZoc))) fs.mkdirSync(path.dirname(outZoc))

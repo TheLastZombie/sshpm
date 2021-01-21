@@ -2,7 +2,16 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
 
-  let outMrng = path.resolve(cli.config.home, 'AppData', 'Roaming', 'mRemoteNG', 'confCons.xml')
+  let outMrng
+  switch (process.platform) {
+    case 'win32':
+      outMrng = path.resolve(cli.config.home, 'AppData', 'Roaming', 'mRemoteNG', 'confCons.xml')
+      break
+    default:
+      if (!flags.conf) throw Error('could not reliably determine configuration location, please use -c')
+      break
+  }
+
   if (flags.conf) outMrng = path.resolve(flags.conf)
   if (flags.init) throw Error('mRemoteNG does not support automatically creating configuration files')
   if (!fs.existsSync(outMrng)) throw Error('mRemoteNG configuration file does not exist')

@@ -10,11 +10,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Support for FileZilla
 - Support for Remmina
+- Support for Linux configuration file locations where possible
 - --use flag to point to custom sshpm configuration
 - Documentation for execution from source without compiling
 
 ### Changed
 
+- Error if configuration location could not be determined
 - Error if application configuration file is encrypted
 - Automatically generate examples for apply command
 - Exclude assets from .editorconfig

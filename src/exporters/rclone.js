@@ -4,7 +4,17 @@ module.exports = (cli, data, flags) => {
   const childProcess = require('child_process')
   const pathRClone = require('rclone-bin').pathRClone
 
-  let outRcl = path.resolve(cli.config.home, '.config', 'rclone', 'rclone.conf')
+  let outRcl
+  switch (process.platform) {
+    case 'win32':
+    case 'linux':
+      outRcl = path.resolve(cli.config.home, '.config', 'rclone', 'rclone.conf')
+      break
+    default:
+      if (!flags.conf) throw Error('could not reliably determine configuration location, please use -c')
+      break
+  }
+
   if (flags.conf) outRcl = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outRcl))) fs.mkdirSync(path.dirname(outRcl))

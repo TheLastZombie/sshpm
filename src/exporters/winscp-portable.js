@@ -3,8 +3,14 @@ module.exports = (cli, data, flags) => {
   const fs = require('fs')
   const childProcess = require('child_process')
 
-  if (!flags.conf) throw Error('no WinSCP configuration file specified')
-  const outWscp = path.resolve(flags.conf)
+  let outWscp
+  switch (process.platform) {
+    default:
+      if (!flags.conf) throw Error('could not reliably determine configuration location, please use -c')
+      break
+  }
+
+  if (flags.conf) outWscp = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outWscp))) fs.mkdirSync(path.dirname(outWscp))
     fs.openSync(outWscp, 'a')

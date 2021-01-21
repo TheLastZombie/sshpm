@@ -2,7 +2,17 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
 
-  let outSsh = path.resolve(cli.config.home, '.ssh', 'config')
+  let outSsh
+  switch (process.platform) {
+    case 'win32':
+    case 'linux':
+      outSsh = path.resolve(cli.config.home, '.ssh', 'config')
+      break
+    default:
+      if (!flags.conf) throw Error('could not reliably determine configuration location, please use -c')
+      break
+  }
+
   if (flags.conf) outSsh = path.resolve(flags.conf)
   if (flags.init) {
     if (!fs.existsSync(path.dirname(outSsh))) fs.mkdirSync(path.dirname(outSsh))
