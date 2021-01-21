@@ -14,6 +14,7 @@
     "@oclif/plugin-not-found": "^1.2.4",
     "cli-ux": "^5.5.1",
     "iconv-lite": "^0.6.2",
+    "oclif-plugin-completion": "^0.3.2",
     "open": "^7.3.1",
     "rage-edit": "^1.2.0",
     "rclone-bin": "^1.51.0",
@@ -60,7 +61,8 @@
     "bin": "sshpm",
     "plugins": [
       "@oclif/plugin-help",
-      "@oclif/plugin-not-found"
+      "@oclif/plugin-not-found",
+      "oclif-plugin-completion"
     ]
   },
   "repository": "TheLastZombie/sshpm",

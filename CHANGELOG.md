@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Support for Remmina
 - Support for Linux configuration file locations where possible
 - --use flag to point to custom sshpm configuration
+- Autocompletion generation for bash, Zsh and fish
 - Documentation for execution from source without compiling
 
 ### Changed
