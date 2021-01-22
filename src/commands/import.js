@@ -41,7 +41,7 @@ ImportCommand.args = [
 
 ImportCommand.flags = {
   use: flags.string({ description: 'path to custom sshpm configuration file' }),
-  init: flags.string({ char: 'i', description: 'remove existing profiles before importing' })
+  init: flags.boolean({ char: 'i', description: 'remove existing profiles before importing' })
 }
 
 ImportCommand.examples = [
