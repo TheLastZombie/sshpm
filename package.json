@@ -23,6 +23,7 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1.26.0",
     "globby": "^11.0.2",
+    "jest": "^26.6.3",
     "rimraf": "^3.0.2",
     "standard": "^16.0.3"
   },
@@ -72,7 +73,18 @@
     "postpack": "rimraf oclif.manifest.json",
     "prepack": "oclif-dev manifest && oclif-dev readme",
     "start": "node ./bin/run",
-    "test": "echo NO TESTS",
+    "test": "npx jest",
     "version": "oclif-dev readme && git add README.md"
+  },
+  "jest": {
+    "rootDir": "test",
+    "testMatch": [
+      "**/*.js"
+    ]
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   }
 }

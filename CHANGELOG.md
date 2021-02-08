@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - import command to import profiles from file
 - export command to export profiles to file
+- Testing via Jest (including GitHub action)
+
+### Changed
+
+- Update Super-Linter GitHub action
 
 ## [0.6.0] - 2021-01-21
 
