@@ -1,0 +1,25 @@
+<plist version="1.0">
+<dict>
+	<key>Protocol</key>
+	<string>sftp</string>
+	<key>Nickname</key>
+	<string>$(NAME)</string>
+	<key>UUID</key>
+	<string>$(TIME)</string>
+	<key>Hostname</key>
+	<string>$(HOST)</string>
+	<key>Port</key>
+	<string>$(PORT)</string>
+	<key>Username</key>
+	<string>$(USER)</string>
+	<key>Private Key File</key>
+	<string>$(KEY)</string>
+	<key>Private Key File Dictionary</key>
+	<dict>
+		<key>Path</key>
+		<string>$(KEY)</string>
+	</dict>
+	<key>Comment</key>
+	<string>sshpm/$(VERSION)</string>
+</dict>
+</plist>

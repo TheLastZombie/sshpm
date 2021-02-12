@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+- Support for Cyberduck
 - import command to import profiles from file
 - export command to export profiles to file
 - Testing via Jest (including GitHub action)
@@ -15,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Update Super-Linter GitHub action
+- Update NPM keywords
 - Update dependencies
 
 ### Fixed

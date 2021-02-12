@@ -110,6 +110,7 @@ The following programs are currently supported:
 
 |                                                              | Name | Host | Port | User | Password | Key |
 | :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :------: | :-: |
+| [Cyberduck](https://cyberduck.io/)                           | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [FileZilla](https://filezilla-project.org/)                  | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
 | [KiTTY](https://9bis.net/kitty/#!index.md)                   | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [mRemoteNG](https://mremoteng.org/)                          | ✕    | ✕    | ✕    | ✕    |          |     |
