@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Update Super-Linter GitHub action
 - Update NPM keywords
+- Update package-lock.json to version 2
 - Update dependencies
 
 ### Fixed
