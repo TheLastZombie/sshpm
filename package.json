@@ -15,7 +15,7 @@
     "cli-ux": "^5.5.1",
     "iconv-lite": "^0.6.2",
     "oclif-plugin-completion": "^0.3.2",
-    "open": "^7.3.1",
+    "open": "^8.0.2",
     "rage-edit": "^1.2.0",
     "rclone-bin": "^1.51.0",
     "ssh2": "^0.8.9"
