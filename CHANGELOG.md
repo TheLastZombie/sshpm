@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Support for Cyberduck
 - import command to import profiles from file
 - export command to export profiles to file
+- -l flag to log out if connection test fails
 - Testing via Jest (including GitHub action)
 - Contributor Covenant code of conduct
 

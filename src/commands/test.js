@@ -23,19 +23,24 @@ class TestCommand extends Command {
 
     let data = JSON.parse(fs.readFileSync(file, 'utf-8'))
     if (!data.map(x => x.name).includes(args.name)) throw Error('specified profile not found')
-    data = data.filter(x => x.name === args.name)[0]
+    const temp = data.filter(x => x.name === args.name)[0]
 
     conn.on('ready', () => {
       this.log('Success: Connection succeeded.')
       conn.end()
     }).on('error', (err) => {
       this.log(err.toString() + '.')
+
+      if (flags.logout) {
+        data = data.filter(x => x.name !== args.name)
+        fs.writeFileSync(file, JSON.stringify(data))
+      }
     }).connect({
-      host: data.host,
-      port: data.port,
-      username: data.user,
-      password: data.pass,
-      privateKey: (data.key ? fs.readFileSync(data.key, 'utf-8') : undefined)
+      host: temp.host,
+      port: temp.port,
+      username: temp.user,
+      password: temp.pass,
+      privateKey: (temp.key ? fs.readFileSync(temp.key, 'utf-8') : undefined)
     })
   }
 }
@@ -47,7 +52,8 @@ TestCommand.args = [
 ]
 
 TestCommand.flags = {
-  use: flags.string({ description: 'path to custom sshpm configuration file' })
+  use: flags.string({ description: 'path to custom sshpm configuration file' }),
+  logout: flags.boolean({ char: 'l', description: 'log out if connection fails' })
 }
 
 TestCommand.examples = [
