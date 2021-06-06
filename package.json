@@ -1,7 +1,7 @@
 {
   "name": "sshpm",
   "description": "The SSH profile manager.",
-  "version": "0.6.0",
+  "version": "1.0.0-rc.1",
   "author": "TheLastZombie",
   "bin": {
     "sshpm": "./bin/run"
