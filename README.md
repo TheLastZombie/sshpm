@@ -2,6 +2,8 @@
 
 sshpm allows you to use a single set of SSH connection profiles across multiple SSH-related programs.
 
+[![Jest](https://github.com/TheLastZombie/sshpm/actions/workflows/jest.yml/badge.svg)](https://github.com/TheLastZombie/sshpm/actions/workflows/jest.yml) [![Super-Linter](https://github.com/TheLastZombie/sshpm/actions/workflows/super-linter.yml/badge.svg)](https://github.com/TheLastZombie/sshpm/actions/workflows/super-linter.yml)
+
 ## Installation
 
 <details>
