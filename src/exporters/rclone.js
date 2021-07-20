@@ -2,7 +2,13 @@ module.exports = (cli, data, flags) => {
   const path = require('path')
   const fs = require('fs')
   const childProcess = require('child_process')
-  const pathRClone = require('rclone-bin').pathRClone
+
+  let pathRClone
+  if (process.platform === 'win32') {
+    pathRClone = path.resolve(cli.config.dataDir, 'rclone.exe')
+  } else {
+    pathRClone = path.resolve(cli.config.dataDir, 'rclone')
+  }
 
   let outRcl
   switch (process.platform) {

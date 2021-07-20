@@ -8,11 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+- download command to download optional dependencies
 - GitHub Actions badges to documentation
 
 ### Changed
 
 - Update dependencies
+
+### Removed
+
+- Pre-built rclone executables
 
 ## [1.0.0-rc.1] - 2021-06-06
 

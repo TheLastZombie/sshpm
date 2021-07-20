@@ -14,10 +14,10 @@
     "@oclif/plugin-not-found": "^1.2.4",
     "cli-ux": "^5.5.1",
     "iconv-lite": "^0.6.2",
+    "jszip": "^3.6.0",
     "oclif-plugin-completion": "^0.6.0",
     "open": "^8.0.2",
     "rage-edit": "^1.2.0",
-    "rclone-bin": "^1.51.0",
     "ssh2": "^1.1.0"
   },
   "devDependencies": {
