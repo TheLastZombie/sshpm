@@ -1,6 +1,9 @@
 module.exports = async (cli, data, flags) => {
+  const path = require('path')
   const { Registry } = require('rage-edit')
   const childProcess = require('child_process')
+
+  const pathWinSCP = path.resolve(cli.config.dataDir, 'WinSCP.com')
 
   if (process.platform !== 'win32') throw Error('WinSCP uses registry entries, which are not supported on non-Windows systems')
 
@@ -18,9 +21,7 @@ module.exports = async (cli, data, flags) => {
   }
 
   data.forEach(async element => {
-    if (element.key && !flags.exec) return cli.log('Error: WinSCP.com not specified, please point to it using -x')
-
-    if (element.key) childProcess.spawn(flags.exec, ['/keygen', element.key, '/output=' + element.key + '.ppk'])
+    if (element.key) childProcess.spawn(flags.exec || pathWinSCP, ['/keygen', element.key, '/output=' + element.key + '.ppk'])
     const key = 'HKCU\\SOFTWARE\\Martin Prikryl\\WinSCP 2\\Sessions\\' + encodeURIComponent(element.name)
     await Registry.set(key, 'HostName', element.host)
     await Registry.set(key, 'PortNumber', Number(element.port))
