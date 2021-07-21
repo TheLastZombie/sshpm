@@ -4,7 +4,7 @@ module.exports = (cli) => {
   const path = require('path')
   const fs = require('fs')
 
-  const url = 'https://winscp.net/download/files/202107200842a476468fa30f419b2d43b80f125d4051/WinSCP-5.19.1-Portable.zip'
+  const url = 'https://netcologne.dl.sourceforge.net/project/winscp/WinSCP/5.19.1/WinSCP-5.19.1-Portable.zip'
 
   https.get(url, res => {
     let data = []
