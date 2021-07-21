@@ -40,12 +40,12 @@
   },
   "repository": "github:TheLastZombie/sshpm",
   "scripts": {
-    "dist": "npx oclif-dev pack",
-    "lint": "npx standard --fix",
+    "dist": "oclif-dev pack",
+    "lint": "standard --fix",
     "postpack": "rimraf oclif.manifest.json",
     "prepack": "oclif-dev manifest && oclif-dev readme",
     "start": "node ./bin/run",
-    "test": "npx jest",
+    "test": "jest",
     "version": "oclif-dev readme && git add README.md"
   },
   "dependencies": {
