@@ -1,3 +1,5 @@
+name: sshpm
+title: null
 markdown: CommonMarkGhPages
 commonmark:
-  extensions: ['table']
+  extensions: ['autolink', 'strikethrough', 'table', 'tagfilter', 'tasklist']

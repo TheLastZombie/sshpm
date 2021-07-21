@@ -1,12 +1,53 @@
 {
   "name": "sshpm",
-  "description": "The SSH profile manager.",
   "version": "1.0.0-rc.1",
-  "author": "TheLastZombie",
+  "description": "The SSH profile manager.",
+  "keywords": [
+    "config",
+    "configuration",
+    "connection",
+    "cyberduck",
+    "filezilla",
+    "kitty",
+    "manager",
+    "mremoteng",
+    "oclif",
+    "openssh",
+    "profile",
+    "putty",
+    "rclone",
+    "remmina",
+    "ssh",
+    "winscp",
+    "zoc"
+  ],
+  "homepage": "https://git.io/sshpm",
+  "bugs": "https://github.com/TheLastZombie/sshpm/issues",
+  "license": "MIT",
+  "author": {
+    "name": "TheLastZombie",
+    "url": "https://eric.jetzt/"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "main": "src/index.js",
   "bin": {
     "sshpm": "./bin/run"
   },
-  "bugs": "https://github.com/TheLastZombie/sshpm/issues",
+  "repository": "github:TheLastZombie/sshpm",
+  "scripts": {
+    "dist": "npx oclif-dev pack",
+    "lint": "npx standard --fix",
+    "postpack": "rimraf oclif.manifest.json",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "start": "node ./bin/run",
+    "test": "npx jest",
+    "version": "oclif-dev readme && git add README.md"
+  },
   "dependencies": {
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
@@ -30,34 +71,12 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "files": [
-    "/bin",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json",
-    "/src"
-  ],
-  "homepage": "https://git.io/sshpm",
-  "keywords": [
-    "config",
-    "configuration",
-    "connection",
-    "cyberduck",
-    "filezilla",
-    "kitty",
-    "manager",
-    "mremoteng",
-    "oclif",
-    "openssh",
-    "profile",
-    "putty",
-    "rclone",
-    "remmina",
-    "ssh",
-    "winscp",
-    "zoc"
-  ],
-  "license": "MIT",
-  "main": "src/index.js",
+  "jest": {
+    "rootDir": "test",
+    "testMatch": [
+      "**/*.js"
+    ]
+  },
   "oclif": {
     "commands": "./src/commands",
     "bin": "sshpm",
@@ -65,22 +84,6 @@
       "@oclif/plugin-help",
       "@oclif/plugin-not-found",
       "oclif-plugin-completion"
-    ]
-  },
-  "repository": "TheLastZombie/sshpm",
-  "scripts": {
-    "dist": "npx oclif-dev pack",
-    "lint": "npx standard --fix",
-    "postpack": "rimraf oclif.manifest.json",
-    "prepack": "oclif-dev manifest && oclif-dev readme",
-    "start": "node ./bin/run",
-    "test": "npx jest",
-    "version": "oclif-dev readme && git add README.md"
-  },
-  "jest": {
-    "rootDir": "test",
-    "testMatch": [
-      "**/*.js"
     ]
   },
   "standard": {
