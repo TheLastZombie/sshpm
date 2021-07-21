@@ -14,7 +14,7 @@ const fs = require('fs')
 const path = require('path')
 const downloaders = fs.readdirSync(path.resolve(__dirname, '..', 'downloaders')).map(x => path.parse(x).name)
 
-DownloadCommand.aliases = ['dl']
+DownloadCommand.aliases = ['dl', 'i', 'install']
 
 DownloadCommand.description = 'download optional dependencies'
 
