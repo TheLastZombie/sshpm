@@ -10,7 +10,7 @@ sshpm allows you to use a single set of SSH connection profiles across multiple 
 
 <summary>Using NPM</summary>
 
-```
+```Bash
 npm i -g sshpm
 ```
 
@@ -20,7 +20,7 @@ npm i -g sshpm
 
 <summary>Using PNPM</summary>
 
-```
+```Bash
 pnpm i -g sshpm
 ```
 
@@ -30,7 +30,7 @@ pnpm i -g sshpm
 
 <summary>Using Yarn</summary>
 
-```
+```Bash
 yarn global add sshpm
 ```
 
@@ -48,7 +48,7 @@ Download the [latest release](https://github.com/TheLastZombie/sshpm/releases/la
 
 <summary>From source</summary>
 
-```
+```Bash
 git clone https://github.com/TheLastZombie/sshpm
 cd sshpm
 npm i
@@ -58,7 +58,7 @@ To run sshpm without compiling, use `npm start --` instead of `sshpm` (i.e. `npm
 
 To compile sshpm, run the distribution script:
 
-```
+```Bash
 npm run dist
 ```
 
@@ -72,7 +72,7 @@ After that, you'll (hopefully) find what you need inside the `dist` directory.
 
 If you use Scoop but don't want to install Node.js, you can also use my bucket to install sshpm:
 
-```
+```Bash
 scoop bucket add tlz https://github.com/TheLastZombie/scoop-bucket
 scoop install sshpm
 ```
@@ -97,7 +97,7 @@ To show help for a specific command, run `sshpm help [COMMAND]` or `sshpm [COMMA
 
 The commands themselves are pretty self-explanatory, and a typical workflow might look like this:
 
-```
+```Bash
 sshpm init
 sshpm login "Server 1" -h example.com -o 22 -u username -p password
 sshpm login "Server 2" -h example.com -o 22 -u username -k id_rsa
