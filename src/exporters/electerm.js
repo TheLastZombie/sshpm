@@ -38,6 +38,7 @@ module.exports = (cli, data, flags) => {
       .replace(/\$\(PORT\)/g, element.port)
       .replace(/\$\(USER\)/g, element.user)
       .replace(/\$\(PASS\)/g, element.pass || '')
+      .replace(/\$\(KEY\)/g, fs.readFileSync(element.key) || '')
       .replace(/\$\(VERSION\)/g, cli.config.version)
     if (element.key) {
       tempElec = tempElec.replace(/"authType":"password"/g, '"authType":"privateKey"')

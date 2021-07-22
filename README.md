@@ -113,7 +113,7 @@ The following programs are currently supported:
 |                                                              | Name | Host | Port | User | Password | Key |
 | :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :------: | :-: |
 | [Cyberduck](https://cyberduck.io/)                           | ✕    | ✕    | ✕    | ✕    |          | ✕   |
-| [electerm](https://electerm.github.io/electerm/)             | ✕    | ✕    | ✕    | ✕    | ✕        |     |
+| [electerm](https://electerm.github.io/electerm/)             | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
 | [FileZilla](https://filezilla-project.org/)                  | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
 | [KiTTY](https://9bis.net/kitty/#!index.md)                   | ✕    | ✕    | ✕    | ✕    |          | ✕   |
 | [mRemoteNG](https://mremoteng.org/)                          | ✕    | ✕    | ✕    | ✕    |          |     |
