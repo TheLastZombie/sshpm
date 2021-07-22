@@ -1,0 +1,1 @@
+{"_id":"$(TIME)","title":"$(NAME)","host":"$(HOST)","username":"$(USER)","authType":"password","password":"$(PASS)","port":$(PORT),"passwordEncrypted":false,"sshpm":"$(VERSION)"}

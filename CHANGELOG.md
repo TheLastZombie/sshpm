@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+- Support for electerm
 - download command to download optional dependencies
 - GitHub Actions badges to documentation
 
@@ -17,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Update to latest Node.js template
 - Use Unix line endings
+- Update NPM keywords
 - Update dependencies
 
 ### Removed
