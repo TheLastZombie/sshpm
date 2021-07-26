@@ -5,26 +5,43 @@ module.exports = (cli, data, flags) => {
   let outCdk
   switch (process.platform) {
     case 'win32':
-      outCdk = path.resolve(cli.config.home, 'AppData', 'Roaming', 'Cyberduck', 'Bookmarks')
+      outCdk = path.resolve(
+        cli.config.home,
+        'AppData',
+        'Roaming',
+        'Cyberduck',
+        'Bookmarks'
+      )
       break
     default:
-      if (!flags.conf) throw Error('could not reliably determine configuration location, please use -c')
+      if (!flags.conf) {
+        throw Error(
+          'could not reliably determine configuration location, please use -c'
+        )
+      }
       break
   }
 
   if (flags.conf) outCdk = path.resolve(flags.conf)
   if (flags.init && !fs.existsSync(outCdk)) fs.mkdirSync(outCdk)
-  if (!fs.existsSync(outCdk)) throw Error('Cyberduck configuration directory does not exist')
+  if (!fs.existsSync(outCdk)) {
+    throw Error('Cyberduck configuration directory does not exist')
+  }
 
   if (!flags.keep) {
-    fs.readdirSync(outCdk).forEach(file => {
+    fs.readdirSync(outCdk).forEach((file) => {
       const conf = fs.readFileSync(path.resolve(outCdk, file), 'utf-8')
-      if (conf.match(/<plist version=".*">/) && conf.match(/sshpm\//)) fs.unlinkSync(path.resolve(outCdk, file))
+      if (conf.match(/<plist version=".*">/) && conf.match(/sshpm\//)) {
+        fs.unlinkSync(path.resolve(outCdk, file))
+      }
     })
   }
 
-  data.forEach(element => {
-    let tempCdk = fs.readFileSync(path.resolve(__dirname, '..', 'assets', '1.duck'), 'utf-8')
+  data.forEach((element) => {
+    let tempCdk = fs.readFileSync(
+      path.resolve(__dirname, '..', 'assets', '1.duck'),
+      'utf-8'
+    )
     tempCdk = tempCdk
       .replace(/\$\(NAME\)/g, element.name)
       .replace(/\$\(HOST\)/g, element.host)

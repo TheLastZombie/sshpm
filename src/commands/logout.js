@@ -16,12 +16,16 @@ class LogoutCommand extends Command {
       file = path.resolve(dir, 'config.json')
     }
 
-    if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
+    if (!fs.existsSync(dir)) {
+      throw Error('configuration directory does not exist')
+    }
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
 
     let data = JSON.parse(fs.readFileSync(file, 'utf-8'))
-    if (!data.map(x => x.name).includes(args.name)) throw Error('specified profile not found')
-    data = data.filter(x => x.name !== args.name)
+    if (!data.map((x) => x.name).includes(args.name)) {
+      throw Error('specified profile not found')
+    }
+    data = data.filter((x) => x.name !== args.name)
 
     fs.writeFileSync(file, JSON.stringify(data))
   }
@@ -37,8 +41,6 @@ LogoutCommand.flags = {
   use: flags.string({ description: 'path to custom sshpm configuration file' })
 }
 
-LogoutCommand.examples = [
-  '$ sshpm logout Server'
-]
+LogoutCommand.examples = ['$ sshpm logout Server']
 
 module.exports = LogoutCommand

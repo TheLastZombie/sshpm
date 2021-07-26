@@ -16,7 +16,9 @@ class ExportCommand extends Command {
       file = path.resolve(dir, 'config.json')
     }
 
-    if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
+    if (!fs.existsSync(dir)) {
+      throw Error('configuration directory does not exist')
+    }
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
 
     fs.copyFileSync(file, path.resolve(args.file))
@@ -33,8 +35,6 @@ ExportCommand.flags = {
   use: flags.string({ description: 'path to custom sshpm configuration file' })
 }
 
-ExportCommand.examples = [
-  '$ sshpm export config.json'
-]
+ExportCommand.examples = ['$ sshpm export config.json']
 
 module.exports = ExportCommand

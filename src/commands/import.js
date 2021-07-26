@@ -21,12 +21,18 @@ class ImportCommand extends Command {
     const output = JSON.parse(fs.readFileSync(file, 'utf-8'))
     const input = JSON.parse(fs.readFileSync(path.resolve(args.file)))
 
-    if (flags.init || !output.length) return fs.copyFileSync(path.resolve(args.file), file)
+    if (flags.init || !output.length) {
+      return fs.copyFileSync(path.resolve(args.file), file)
+    }
 
-    input.forEach(element => {
-      if (output.map(x => x.name).includes(element.name)) {
-        console.log('A connection with the name ' + element.name + ' already existed and has been overwritten.')
-        output.splice(output.map(x => x.name).indexOf(element.name), 1)
+    input.forEach((element) => {
+      if (output.map((x) => x.name).includes(element.name)) {
+        console.log(
+          'A connection with the name ' +
+            element.name +
+            ' already existed and has been overwritten.'
+        )
+        output.splice(output.map((x) => x.name).indexOf(element.name), 1)
       }
     })
     fs.writeFileSync(file, JSON.stringify(output.concat(input)))
@@ -41,11 +47,12 @@ ImportCommand.args = [
 
 ImportCommand.flags = {
   use: flags.string({ description: 'path to custom sshpm configuration file' }),
-  init: flags.boolean({ char: 'i', description: 'remove existing profiles before importing' })
+  init: flags.boolean({
+    char: 'i',
+    description: 'remove existing profiles before importing'
+  })
 }
 
-ImportCommand.examples = [
-  '$ sshpm import config.json'
-]
+ImportCommand.examples = ['$ sshpm import config.json']
 
 module.exports = ImportCommand

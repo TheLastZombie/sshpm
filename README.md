@@ -112,15 +112,15 @@ The following programs are currently supported:
 
 |                                                              | Name | Host | Port | User | Password | Key |
 | :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :------: | :-: |
-| [Cyberduck](https://cyberduck.io/)                           | ✕    | ✕    | ✕    | ✕    |          | ✕   |
-| [electerm](https://electerm.github.io/electerm/)             | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
-| [FileZilla](https://filezilla-project.org/)                  | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
-| [KiTTY](https://9bis.net/kitty/#!index.md)                   | ✕    | ✕    | ✕    | ✕    |          | ✕   |
-| [mRemoteNG](https://mremoteng.org/)                          | ✕    | ✕    | ✕    | ✕    |          |     |
-| [OpenSSH](https://www.openssh.com/)                          | ✕    | ✕    | ✕    | ✕    |          | ✕   |
-| [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) | ✕    | ✕    | ✕    | ✕    |          | ✕   |
-| [rclone](https://rclone.org/)                                | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
-| [Remmina](https://remmina.org/)                              | ✕    | ✕    | ✕    | ✕    |          | ✕   |
-| [WinSCP](https://winscp.net/)                                | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
-| [WinSCP Portable](https://winscp.net/)                       | ✕    | ✕    | ✕    | ✕    | ✕        | ✕   |
-| [ZOC Terminal](https://www.emtec.com/zoc/)                   | ✕    | ✕    | ✕    | ✕    |          | ✕   |
+|              [Cyberduck](https://cyberduck.io/)              |  ✕   |  ✕   |  ✕   |  ✕   |          |  ✕  |
+|       [electerm](https://electerm.github.io/electerm/)       |  ✕   |  ✕   |  ✕   |  ✕   |    ✕     |  ✕  |
+|         [FileZilla](https://filezilla-project.org/)          |  ✕   |  ✕   |  ✕   |  ✕   |    ✕     |  ✕  |
+|          [KiTTY](https://9bis.net/kitty/#!index.md)          |  ✕   |  ✕   |  ✕   |  ✕   |          |  ✕  |
+|             [mRemoteNG](https://mremoteng.org/)              |  ✕   |  ✕   |  ✕   |  ✕   |          |     |
+|             [OpenSSH](https://www.openssh.com/)              |  ✕   |  ✕   |  ✕   |  ✕   |          |  ✕  |
+| [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) |  ✕   |  ✕   |  ✕   |  ✕   |          |  ✕  |
+|                [rclone](https://rclone.org/)                 |  ✕   |  ✕   |  ✕   |  ✕   |    ✕     |  ✕  |
+|               [Remmina](https://remmina.org/)                |  ✕   |  ✕   |  ✕   |  ✕   |          |  ✕  |
+|                [WinSCP](https://winscp.net/)                 |  ✕   |  ✕   |  ✕   |  ✕   |    ✕     |  ✕  |
+|            [WinSCP Portable](https://winscp.net/)            |  ✕   |  ✕   |  ✕   |  ✕   |    ✕     |  ✕  |
+|          [ZOC Terminal](https://www.emtec.com/zoc/)          |  ✕   |  ✕   |  ✕   |  ✕   |          |  ✕  |

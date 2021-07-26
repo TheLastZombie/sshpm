@@ -17,7 +17,9 @@ class OpenCommand extends Command {
       file = path.resolve(dir, 'config.json')
     }
 
-    if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
+    if (!fs.existsSync(dir)) {
+      throw Error('configuration directory does not exist')
+    }
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
 
     open(file)
@@ -30,8 +32,6 @@ OpenCommand.flags = {
   use: flags.string({ description: 'path to custom sshpm configuration file' })
 }
 
-OpenCommand.examples = [
-  '$ sshpm open'
-]
+OpenCommand.examples = ['$ sshpm open']
 
 module.exports = OpenCommand

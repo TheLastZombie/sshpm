@@ -17,7 +17,9 @@ class ListCommand extends Command {
       file = path.resolve(dir, 'config.json')
     }
 
-    if (!fs.existsSync(dir)) throw Error('configuration directory does not exist')
+    if (!fs.existsSync(dir)) {
+      throw Error('configuration directory does not exist')
+    }
     if (!fs.existsSync(file)) throw Error('configuration file does not exist')
 
     const data = JSON.parse(fs.readFileSync(file, 'utf-8'))
@@ -26,17 +28,21 @@ class ListCommand extends Command {
     if (flags.json) {
       this.log(data)
     } else {
-      cli.table(data, {
-        name: { header: 'Profile name' },
-        host: { header: 'Host or IP' },
-        port: { header: 'Port' },
-        user: { header: 'User name' },
-        pass: { header: 'Password', get: x => x.pass || '' },
-        key: { header: 'Key file', get: x => x.key || '' },
-        time: { header: 'Timestamp' }
-      }, {
-        sort: 'name'
-      })
+      cli.table(
+        data,
+        {
+          name: { header: 'Profile name' },
+          host: { header: 'Host or IP' },
+          port: { header: 'Port' },
+          user: { header: 'User name' },
+          pass: { header: 'Password', get: (x) => x.pass || '' },
+          key: { header: 'Key file', get: (x) => x.key || '' },
+          time: { header: 'Timestamp' }
+        },
+        {
+          sort: 'name'
+        }
+      )
     }
   }
 }
@@ -50,9 +56,6 @@ ListCommand.flags = {
   json: flags.boolean({ char: 'j', description: 'output in JSON format' })
 }
 
-ListCommand.examples = [
-  '$ sshpm list',
-  '$ sshpm list -j'
-]
+ListCommand.examples = ['$ sshpm list', '$ sshpm list -j']
 
 module.exports = ListCommand

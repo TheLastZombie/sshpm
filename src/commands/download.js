@@ -6,22 +6,33 @@ class DownloadCommand extends Command {
 
     const path = require('path')
 
-    require(path.resolve(__dirname, '..', 'downloaders', args.program + '.js'))(this)
+    require(path.resolve(__dirname, '..', 'downloaders', args.program + '.js'))(
+      this
+    )
   }
 }
 
 const fs = require('fs')
 const path = require('path')
-const downloaders = fs.readdirSync(path.resolve(__dirname, '..', 'downloaders')).map(x => path.parse(x).name)
+const downloaders = fs
+  .readdirSync(path.resolve(__dirname, '..', 'downloaders'))
+  .map((x) => path.parse(x).name)
 
 DownloadCommand.aliases = ['dl', 'i', 'install']
 
 DownloadCommand.description = 'download optional dependencies'
 
 DownloadCommand.args = [
-  { name: 'program', description: 'dependency to download', required: true, options: downloaders }
+  {
+    name: 'program',
+    description: 'dependency to download',
+    required: true,
+    options: downloaders
+  }
 ]
 
-DownloadCommand.examples = fs.readdirSync(path.resolve(__dirname, '..', 'downloaders')).map(x => '$ sshpm download ' + path.parse(x).name)
+DownloadCommand.examples = fs
+  .readdirSync(path.resolve(__dirname, '..', 'downloaders'))
+  .map((x) => '$ sshpm download ' + path.parse(x).name)
 
 module.exports = DownloadCommand

@@ -29,8 +29,6 @@ InitCommand.flags = {
   use: flags.string({ description: 'path to custom sshpm configuration file' })
 }
 
-InitCommand.examples = [
-  '$ sshpm init'
-]
+InitCommand.examples = ['$ sshpm init']
 
 module.exports = InitCommand
