@@ -64,7 +64,6 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.26.0",
-    "globby": "^11.0.2",
     "jest": "^27.0.4",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
