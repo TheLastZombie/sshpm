@@ -42,7 +42,7 @@
   "repository": "github:TheLastZombie/sshpm",
   "scripts": {
     "dist": "oclif-dev pack",
-    "lint": "standard --fix",
+    "lint": "prettier --write . && standard --fix",
     "postpack": "rimraf oclif.manifest.json",
     "prepack": "oclif-dev manifest && oclif-dev readme",
     "start": "node ./bin/run",
@@ -66,6 +66,7 @@
     "@oclif/dev-cli": "^1.26.0",
     "globby": "^11.0.2",
     "jest": "^27.0.4",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "standard": "^16.0.3"
   },
