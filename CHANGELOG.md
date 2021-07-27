@@ -12,10 +12,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Support for electerm
 - download command to download optional dependencies
+- CSV, minified JSON and TSV formats to list command
 - GitHub Actions badges to documentation
 
 ### Changed
 
+- Highlight JSON format in list command
 - Update to latest Node.js template
 - Update NPM keywords
 - Update dependencies
