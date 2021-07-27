@@ -15,6 +15,16 @@ module.exports = (cli, data, flags) => {
         'electerm.bookmarks.nedb'
       )
       break
+    case 'linux':
+      outElec = path.resolve(
+        cli.config.home,
+        '.config',
+        'electerm',
+        'users',
+        'default_user',
+        'electerm.bookmarks.nedb'
+      )
+      break
     default:
       if (!flags.conf) {
         throw Error(
