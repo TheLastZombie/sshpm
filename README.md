@@ -81,6 +81,20 @@ scoop install sshpm
 
 <details>
 
+<summary>Using asdf</summary>
+
+If you use asdf but don't want to install Node.js, you can also use my plugin to install sshpm:
+
+```Bash
+asdf plugin add sshpm https://github.com/TheLastZombie/asdf-sshpm.git
+asdf install sshpm latest
+asdf global sshpm latest
+```
+
+</details>
+
+<details>
+
 <summary>With NPX</summary>
 
 If you have NPM installed, you can also prepend all commands with `npx` (i.e. `npx sshpm help`).
